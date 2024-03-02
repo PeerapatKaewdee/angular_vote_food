@@ -1,0 +1,39 @@
+.cardposition{
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.cardbody{
+
+    width: 1150px;
+    height: 480px;
+    border-radius: 50px;
+    background-color: rgb(248, 234, 236);
+}
+.example-form{
+
+    margin-top: 5px;
+    padding-right: 90px;
+}
+.inputfield {
+    width: 350px;
+    border-radius: 10px;
+    margin-bottom: 10px; /* Optional: Add margin-bottom for spacing between fields */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputfield label {
+    margin-bottom: 5px;
+  }
+  .inputfield input {
+    height: 70%; /* Make the input fill the container height */
+    border-radius: 10px; /* Apply border-radius to the input */
+    border: 1px solid #cccccc; /* Optional: Add border for styling */
+    box-shadow: 0 6px 4px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+    padding: 10px; /* Optional: Add padding for styling */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
