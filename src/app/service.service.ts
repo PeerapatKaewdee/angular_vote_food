@@ -4,6 +4,7 @@ import { Constants } from './config/component';
 import { Injectable } from '@angular/core';
 import { UserPostResp } from '../app/model/user_res';
 import { lastValueFrom } from 'rxjs';
+import { response } from 'express';
 
 @Injectable({
   providedIn: 'root'
@@ -30,4 +31,9 @@ export class ServiceService {
     const response = await lastValueFrom(this.http.get(url));
     return response as UserPostResp[];
   }
+  public async get_img_ran(){
+    const url = this.constants.API_ENDPOINT +'/foods/random';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as UserPostResp[];
+   }
 }

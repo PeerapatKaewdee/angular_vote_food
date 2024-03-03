@@ -19,9 +19,15 @@ export class VoteComponent {
   user: UserPostResp[] = [];
   id: any = '';
   uid: any;
+  img: any;
+  img1: any;
+  img2: any;
   person: any[] = [];
 
-  constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute){
+   constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute){
+
+    this.vote();
+  
     this.id = this.service.id;
     console.log("service.id",this.service.id);
     console.log("this.id",this.id);
@@ -40,6 +46,13 @@ export class VoteComponent {
     this.user = await this.service.getUser();
 
     console.log(this.user);
+  }
+  async vote(){
+    this.img = await this.service.get_img_ran();
+    this.img1 = this.img[0];
+    this.img2 = this.img[1];
+    console.log("img Ran",this.img);
+    
   }
 
 
