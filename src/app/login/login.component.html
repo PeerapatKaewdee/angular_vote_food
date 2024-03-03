@@ -23,12 +23,12 @@
           <form class="example-form">
             <div class="inputfield">
               <label style="color: rgb(0, 0, 0)">Email</label>
-              <input type="email" required placeholder="Email" id="email">
+              <input type="email" placeholder="name@gmail.com" #email required>
             </div>
             
             <div class="inputfield">
               <label style="color: rgb(0, 0, 0)">Password</label>
-              <input type="password" required placeholder="Password" id="password">
+              <input type="password" placeholder="Password" #password required>
             </div>
             
 
@@ -52,6 +52,7 @@
                 style="border-radius: 10px; margin-bottom: 10px"
                 mat-raised-button
                 color="warn"
+              
                 (click)="login(email,password)"
                 routerLink="/profile/{{this.uid}}"
               >
@@ -66,3 +67,4 @@
 
   <!-- <button (click)="callAip()">get user</button> -->
 </div>
+

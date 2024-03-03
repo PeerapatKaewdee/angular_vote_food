@@ -4,13 +4,17 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RankingComponent } from './ranking/ranking.component';
 import { EditComponent } from './edit/edit.component';
+import { VoteNoUserComponent } from './vote-no-user/vote-no-user.component';
+import { VoteComponent } from './vote/vote.component';
 
 export const routes: Routes = [
 
-    { path: '', component: LoginComponent },
+    {path : '' , component :VoteNoUserComponent },
+    { path: 'login', component: LoginComponent },
     {path : 'signup', component: SignUpComponent},
-    {path : 'ranking',component : RankingComponent},
     {path : 'profile/:uid',component : ProfileComponent},
+    {path : 'ranking/:uid',component : RankingComponent},
+    {path : 'vote/:uid' ,component :VoteComponent } ,
     {path : 'edit' , component : EditComponent}
    
 ];

@@ -16,4 +16,10 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 })
 export class EditComponent {
 
+
+  goBack() {
+    // Implementing window.back to go back to the previous location
+    window.history.back();
+  }
+
 }

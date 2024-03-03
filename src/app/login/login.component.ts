@@ -13,6 +13,7 @@ import { OnInit } from '@angular/core';
 import { UserPostResp } from '../model/user_res';
 import { CommonModule } from '@angular/common';
 import e from 'express';
+import {FormControl, Validators,  ReactiveFormsModule} from '@angular/forms';
 // import {NgForm} from '@angular/forms';
 @Component({
   selector: 'app-login',
@@ -28,14 +29,13 @@ import e from 'express';
     MatCardModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent implements OnInit {
-  seartID() {
-    console.log('ID', this.id);
-  }
+  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   email: any = "error";
   password: any = "error";
   user: UserPostResp[] = [];
@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
   uid: any;
   person: any[] = [];
   constructor(private http: HttpClient, private service: ServiceService) {}
+  
   ngOnInit(): void {
     this.service.getUser((Response: any) => {
       console.log(Response);
@@ -61,8 +62,10 @@ export class LoginComponent implements OnInit {
 
     this.user = await this.service.getUser();
     console.log(this.user);
+if(email.value && password.value){
 
-    for (const user of this.user) {
+
+    for (let user of this.user) {
       if (
         user.email.includes(email.value) &&
         user.pass.includes(password.value)
@@ -72,27 +75,29 @@ export class LoginComponent implements OnInit {
           user.email.includes(email.value),
           user.pass.includes(password.value)
         );
-        this.person.push(user);
+        
       
         if (user.type === 1) {
           //ไปที่หน้า addMin
           console.log('user.email', user.email);
         console.log('user.pass', user.pass);
-        } else {
-          console.log('type', user.type);
+        } else if(user.type === 0){
           console.log('user.email', user.email);
           console.log('user.pass', user.pass);
+          console.log('type', user.type);
           this.uid = user.uid;
+          console.log("uid",this.uid);
+          this.person.push(user);
+          
           // ไปที่หน้าporfile
         }
       } else {
         console.log('login faill');
-
-        this.email = null;
-        this.password = null;
-        this.uid = null;
       }
     }
-    console.log('person', this.person);
+    
+  }else{
+  
   }
+}
 }

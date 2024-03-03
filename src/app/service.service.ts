@@ -10,6 +10,7 @@ import { lastValueFrom } from 'rxjs';
 })
 export class ServiceService {
 
+  id: any;
   constructor(private http :HttpClient ,private constants :Constants ) { }
 
 
