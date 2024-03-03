@@ -36,4 +36,9 @@ export class ServiceService {
     const response = await lastValueFrom(this.http.get(url));
     return response as UserPostResp[];
    }
+   public async upscore(fid :any , score:any){
+      const url = this.constants.API_ENDPOINT + '/foods/score?'+' fid= '+fid+' &score= '+score;
+      const response = await lastValueFrom(this.http.get(url));
+      return response as UserPostResp[];
+   }
 }

@@ -22,6 +22,7 @@ export class VoteComponent {
   img: any;
   img1: any;
   img2: any;
+  foods_score: any;
   person: any[] = [];
 
    constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute){
@@ -53,6 +54,12 @@ export class VoteComponent {
     this.img2 = this.img[1];
     console.log("img Ran",this.img);
     
+  }
+  async score( fid :any){
+    this.foods_score = 102;
+      console.log("fid",fid);
+      await this.service.upscore(fid, this.foods_score);
+      
   }
 
 

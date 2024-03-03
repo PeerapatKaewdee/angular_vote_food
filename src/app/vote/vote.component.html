@@ -45,16 +45,13 @@
             <mat-card-content style="display: flex; justify-content: space-between; padding: 0 10px;">
 
                 <!-- First Card (Left) -->
-                <mat-card class="cardVS" style=" background-color: red; margin-right: 15px;">
-                    <mat-card-header>
-                        <mat-card-title style="color: white;"><img src="{{this.img1.img}}" alt="" width="300px"
-                                height="100%"></mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <!-- Content for Card 1 -->
-                        <!-- Add your content here -->
-                    </mat-card-content>
-                </mat-card>
+                <a (click)="score(this.img1.fid)"><mat-card class="cardVS"
+                        style=" background-color: red; margin-right: 15px;">
+
+                        <img style="background-size: cover;" src="{{this.img1.img}}" alt="" width="100%" height="100%">
+
+
+                    </mat-card></a>
 
                 <!-- Logo (Centered and Overlapping) -->
                 <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1;">
@@ -64,14 +61,9 @@
 
                 <!-- Second Card (Right) -->
                 <mat-card class="cardVS" style=" background-color: blue; margin-left: 15px;">
-                    <mat-card-header>
-                        <mat-card-title style="color: white;"><img src="{{this.img2.img}}" width="300px" height="100%"
-                                alt=""></mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <!-- Content for Card 2 -->
-                        <!-- Add your content here -->
-                    </mat-card-content>
+                    <img (click)="score(this.img2.fid)" style="background-size: cover;" src="{{this.img2.img}}" alt=""
+                        width="100%" height="100%">
+
                 </mat-card>
 
             </mat-card-content>
