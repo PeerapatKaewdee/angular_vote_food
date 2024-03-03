@@ -22,16 +22,12 @@ export class ServiceService {
     const response = await lastValueFrom(this.http.get(url));
     return response as UserPostResp[];
   }
-  public async insert(options?: any) {
-    const url = this.constants.API_ENDPOINT + '/user';
-    if (options) {
-      const url = this.constants.API_ENDPOINT + '/user' + options;
-    }
+  public async get_foods_img(id:any) {
+    // const url = this.constants.API_ENDPOINT + '/user/foods/';
+    // if (id) {
+      const url = this.constants.API_ENDPOINT + '/user/foods/' + id;
+    // }
     const response = await lastValueFrom(this.http.get(url));
     return response as UserPostResp[];
   }
-  
-  //get
-  
 }
-
