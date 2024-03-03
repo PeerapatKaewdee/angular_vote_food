@@ -21,19 +21,25 @@ export class ProfileComponent {
   id: any = '';
   uid: any;
   person: any[] = [];
+  img:any;
   constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute :ActivatedRoute) {
 
+  // this.get_img();    
   }
   
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.id = this.ActivatedRoute.snapshot.paramMap.get('uid') || ' ';
     console.log("uid",this.id);
     this.service.id = this.id;
     console.log("service.id",this.service.id);
+    this.img = await this.service.get_foods_img(this.id);
+    console.log("img",this.img);
     
-    this.service.getUser((Response: any) => {
-      console.log(Response);
-    });
+  // this.get_img();    
+    
+    // this.service.getUser((Response: any) => {
+    //   console.log(Response);
+    // });
   }
 
   async callAip() {
