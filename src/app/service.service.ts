@@ -22,4 +22,16 @@ export class ServiceService {
     const response = await lastValueFrom(this.http.get(url));
     return response as UserPostResp[];
   }
+  public async insert(options?: any) {
+    const url = this.constants.API_ENDPOINT + '/user';
+    if (options) {
+      const url = this.constants.API_ENDPOINT + '/user' + options;
+    }
+    const response = await lastValueFrom(this.http.get(url));
+    return response as UserPostResp[];
+  }
+  
+  //get
+  
 }
+
