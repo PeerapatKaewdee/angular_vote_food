@@ -32,8 +32,8 @@ export class ProfileComponent {
     console.log("uid",this.id);
     this.service.id = this.id;
     console.log("service.id",this.service.id);
-    this.img = await this.service.get_foods_img(this.id);
-    console.log("img",this.img);
+    // this.img = await this.service.get_foods_img(this.id);
+    // console.log("img",this.img);
     
   // this.get_img();    
     
