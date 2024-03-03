@@ -56,7 +56,7 @@ export class VoteComponent {
     
   }
   async score( fid :any){
-    this.foods_score = 102;
+    this.foods_score = 999;
       console.log("fid",fid);
       await this.service.upscore(fid, this.foods_score);
       
