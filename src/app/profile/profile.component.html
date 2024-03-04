@@ -37,11 +37,15 @@
         </div>
     </nav>
     <!-- Add this inside the <body> tag -->
-    <div class="circle-card">
-        <div class="card-content">
-
+        <div style="margin-left: 30px; display: flex; align-items: center;"> <!-- Adjust margin-left as needed -->
+            <div class="circle-card">
+                <img src="{{this.img[0].avatar}}" alt="">
+            </div>
+            <h1 style="margin-left: 10px;">{{this.img[0].name}}</h1>
         </div>
-    </div>
+    
+   
+    
 
     <div class="button-container">
         <button mat-button type="button" [routerLink]="'/edit'" class="custom-button"
@@ -60,9 +64,9 @@
 
 
     <!-- Add this inside the <body> tag, below the circle-card and button-container -->
-    <div class="card-container" *ngFor="let img of this.img">
-        <div class="custom-card">
-            <img src="{{img}}" alt="">
+    <div class="card-container">
+        <div class="custom-card" *ngFor="let img of this.img">
+            <img src="{{img.img}}" width="300px" height="100%" alt="">
         </div>
         <!-- <div class="custom-card">Card 2</div>
         <div class="custom-card">Card 3</div>
