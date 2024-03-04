@@ -37,20 +37,12 @@
         </div>
     </nav>
     <!-- Add this inside the <body> tag -->
-       
-    <div class="circle-card">
-        <div class="card-content">
-
+        <div style="margin-left: 30px; display: flex; align-items: center;"> <!-- Adjust margin-left as needed -->
+            <div class="circle-card">
+                <img src="{{this.img[0].avatar}}" alt="">
+            </div>
+            <h1 style="margin-left: 10px;">{{this.img[0].name}}</h1>
         </div>
-        <div *ngFor ="let name of name" style="margin-left: 160px;"> 
-            
-            <h1>
-                {{name.name}}
-            </h1>
-        </div>
-    </div>
-    
-       
     
    
     
