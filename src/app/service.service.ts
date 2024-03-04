@@ -42,4 +42,15 @@ export class ServiceService {
       const response = await lastValueFrom(this.http.put(url,{}));
       return response as UserPostResp[];
    }
+   public async signUp(body :any){
+      const url =  this.constants.API_ENDPOINT + '/user/addData';
+      const  response = await  lastValueFrom(this.http.post(url,JSON.stringify(body)));
+      return response as UserPostResp[];
+
+   }
+   public async get_new_user(){
+    const url = this.constants.API_ENDPOINT +'/user/newUser';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as UserPostResp[];
+   }
 }
