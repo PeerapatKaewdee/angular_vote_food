@@ -1,6 +1,6 @@
 <div class="cardposition">
   <mat-card class="cardbody">
-    <!-- <mat-card-header></mat-card-header> -->
+    <mat-card-header></mat-card-header>
     <mat-card-content style="margin-top: 5px">
       <div class="row" style="justify-content: space-between; display: flex">
         <div>
@@ -15,17 +15,20 @@
           <form class="example-form">
             <div class="inputfield">
               <label style="color: rgb(0, 0, 0)">Username</label>
-              <input type="text" placeholder="Username" [(ngModel)]="name">
+              <!-- <input type="te" placeholder="Username" [(ngModel)]="name"> -->
+              <input type="text" placeholder="Username" #name>
             </div>
             <br />
             <div class="inputfield">
               <label style="color: rgb(0, 0, 0)">Email</label>
-              <input type="text" placeholder="name@gmail.com" [(ngModel)]="email">
+              <!-- <input type="email" placeholder="name@gmail.com" [(ngModel)]="email"> -->
+              <input type="email" placeholder="name@gmail.com" #email>
             </div>
             <br />
             <div class="inputfield">
               <label style="color: rgb(0, 0, 0)">Password</label>
-              <input type="password" placeholder="Password" [(ngModel)]="pass" />
+              <!-- <input type="password" placeholder="Password" [(ngModel)]="pass" /> -->
+              <input type="password" placeholder="Password" #pass />
             </div>
             <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 10px;">
               <button style="border-radius: 10px; margin-bottom: 10px; background-color: rgb(255, 208, 0);"
@@ -33,7 +36,7 @@
                 sign in
               </button>
               <button style="border-radius: 10px; margin-bottom: 10px;" mat-raised-button color="warn"
-                (click)="sigup()">
+                (click)="sigup(name,email,pass)" routerLink="/profile/{{this.id}}">
                 signup
               </button>
             </div>
@@ -42,6 +45,6 @@
       </div>
     </mat-card-content>
 
-    <!-- <mat-card-actions></mat-card-actions> -->
+    <mat-card-actions></mat-card-actions>
   </mat-card>
 </div>
