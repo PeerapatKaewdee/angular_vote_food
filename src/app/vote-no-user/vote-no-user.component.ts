@@ -77,8 +77,8 @@ export class VoteNoUserComponent {
   const E_a  =  1 / (1 + 10**(-(lost - winner) / 400));
   const E_b  =  1 / (1 + 10**(-(winner - lost) / 400));
   console.log("K=",K);
-  const rA = winner + (K**(numWin  - E_a));
-  const rB = lost + (K**(numlost  - E_b));
+  const rA = winner + (K*(numWin  - E_a));
+  const rB = lost + (K*(numlost  - E_b));
   console.log("r_A",rA);
   await this.service.upscore(fid_win, rA);
   console.log("r_B",rB);
@@ -93,24 +93,24 @@ export class VoteNoUserComponent {
 rating(rating:any) : any{
 
   if(rating <=1000 ){
-      return 600;
+      return 200;
   }else if(rating>1000  &&  rating<=3000){
-    return 400;
+    return 150;
 
   }else if(rating>3000  &&  rating<=4000){
-    return 300;
+    return 100;
 
   }else if(rating>4000  &&  rating<=6000){
-    return 200;
+    return 80;
 
   }else if(rating>6000  &&  rating<=7000){
-    return 190;
+    return 70;
 
   }else if(rating>7000  &&  rating<=9000){
-    return 180;
+    return 60;
 
   }else{
-    return 150;
+    return 50;
   }
 }
 vote_A(winner: any , lost:any){
