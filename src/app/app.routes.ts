@@ -6,7 +6,6 @@ import { RankingComponent } from './ranking/ranking.component';
 import { EditComponent } from './edit/edit.component';
 import { VoteNoUserComponent } from './vote-no-user/vote-no-user.component';
 import { VoteComponent } from './vote/vote.component';
-import { AddminComponent } from './addmin/addmin.component';
 
 export const routes: Routes = [
 
@@ -16,7 +15,6 @@ export const routes: Routes = [
     {path : 'profile/:uid',component : ProfileComponent},
     {path : 'ranking/:uid',component : RankingComponent},
     {path : 'vote/:uid' ,component :VoteComponent } ,
-    {path : 'edit' , component : EditComponent},
-    {path : 'addmin/:id',component : AddminComponent}
+    {path : 'edit' , component : EditComponent}
    
 ];
