@@ -22,7 +22,7 @@ import {UserPostResp} from "../model/user_res";
   styleUrl: './sign-up.component.css'
 })
 export class SignUpComponent {
-  id:any;
+id:any;
 email: any ;
 pass: any ;
 name: any='';
@@ -32,6 +32,9 @@ name: any='';
     // console.log("country",this.country);
     // this.profileid();
   }
+
+
+  
   async sigup(name:any,email:any,pass:any){
   const body = {
     name: this.name,

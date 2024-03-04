@@ -21,6 +21,7 @@ export class ProfileComponent {
   user: UserPostResp[] = [];
   id: any = '';
   uid: any;
+  name :any ;
   person: any[] = [];
   img:any;
   constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute :ActivatedRoute) {
@@ -30,10 +31,14 @@ export class ProfileComponent {
   
   async ngOnInit(): Promise<void> {
     this.id = this.ActivatedRoute.snapshot.paramMap.get('uid') || ' ';
+
     console.log("uid",this.id);
     this.service.id = this.id;
     console.log("service.id",this.service.id);
     this.img = await this.service.get_foods_img(this.id);
+    this.name = await this.service.getUserByID(this.id);
+    console.log("name",this.name);
+    
     console.log("img",this.img);
     
   // this.get_img();    
