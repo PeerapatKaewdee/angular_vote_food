@@ -39,9 +39,9 @@ name: any='';
     email: this.email,
     pass: this.pass
   }
-  console.log("body",body);
+  console.log("body",body as UserPostResp );
   console.log(this.id);
-  const test = await this.service.signUp(body);
+  const test = await this.service.signUp(body as UserPostResp);
   console.log("test",test);
   
 
