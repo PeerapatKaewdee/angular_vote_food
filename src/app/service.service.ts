@@ -43,8 +43,8 @@ export class ServiceService {
       return response as UserPostResp[];
    }
    public async signUp(body :any){
-      const url =  this.constants.API_ENDPOINT + '/user/addData';
-      const  response = await  lastValueFrom(this.http.post(url,JSON.stringify(body)));
+      const url =  this.constants.API_ENDPOINT + '/user/insert';
+      const  response = await  lastValueFrom(this.http.post(url,JSON.parse(JSON.stringify(body))));
       return response as UserPostResp[];
 
    }
