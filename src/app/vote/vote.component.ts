@@ -8,8 +8,11 @@ import { ServiceService } from '../service.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UserPostResp } from '../model/user_res';
 import { ActivatedRoute } from '@angular/router';
-import { take } from 'rxjs';
-import { tick } from '@angular/core/testing';
+
+
+
+
+
 @Component({
   selector: 'app-vote',
   standalone: true,
@@ -32,6 +35,7 @@ export class VoteComponent {
    constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute){
 
     this.vote();
+
     // this.EloAgloliotrum(1000,1,100,0);
     // this.num = 20**0.5;
     // console.log(this.num);
@@ -40,6 +44,14 @@ export class VoteComponent {
       console.log("service.id",this.service.id);
       console.log("this.id",this.id);
     }
+
+    // this.EloAgloliotrum(1000,1,100,0);
+    // this.num = 20**0.5;
+    // console.log(this.num);
+    
+    this.id = this.service.id;
+    console.log("service.id",this.service.id);
+    console.log("this.id",this.id);
 
     
     
@@ -54,12 +66,22 @@ export class VoteComponent {
     // });
   }
 
+
+  async callAip() {
+    this.user = await this.service.getUser();
+
+    console.log(this.user);
+  }
+
   async vote(){
     this.img = await this.service.get_img_ran();
     this.img1 = this.img[0];
     this.img2 = this.img[1];
     console.log("img Ran",this.img);
+
     console.log("this.id",this.id);
+
+
     
   }
   async score( fid :any){
@@ -68,21 +90,27 @@ export class VoteComponent {
       await this.service.upscore(fid, this.foods_score);
       
   }
+
   async EloAgloliotrum(fid_win: any,winner:any,numWin:any , fid_lost: any,lost:any,numlost:any) :Promise<any>{
   const  K = this.rating(winner);
   const E_a  =  1 / (1 + 10**(-(lost - winner) / 400));
   const E_b  =  1 / (1 + 10**(-(winner - lost) / 400));
+
   console.log("K=",K);
   const rA = winner + (K**(numWin  - E_a));
   const rB = winner + (K**(numlost  - E_b));
   console.log("r_A",rA);
+
   await this.service.upscore(fid_win, rA);
   console.log("r_B",rB);
   await this.service.upscore(fid_lost, rB);
 
   // location.reload();
 
+
+  console.log("r_B",rB);
   
+
   // const sA =();
 
 }
@@ -95,6 +123,12 @@ rating(rating:any) : any{
 
   }else if(rating>300  &&  rating<=400){
     return 300;
+      return 300;
+  }else if(rating>100  &&  rating<=300){
+    return 250;
+
+  }else if(rating>300  &&  rating<=400){
+    return 230;
 
   }else if(rating>400  &&  rating<=600){
     return 200;
@@ -128,5 +162,4 @@ vote_B(winner: any , lost:any){
 
 
 }
-
 }
