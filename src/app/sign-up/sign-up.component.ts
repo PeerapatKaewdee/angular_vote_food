@@ -22,14 +22,15 @@ import { ServiceService } from '../service.service';
 })
 export class SignUpComponent {
   id:any;
-email: any='' ;
-pass: any='' ;
+email: any ;
+pass: any ;
 name: any='';
+country: any;
 
   constructor(private http:HttpClient,private service:ServiceService){
-    
+    // console.log("country",this.country);
   }
-  async sigup(){
+  async sigup(name:any,email:any,pass:any){
   const body = {
     name: this.name,
     type:0,
@@ -37,6 +38,8 @@ name: any='';
     pass: this.pass
   }
   console.log("body",body);
+
+  
   
   // await this.service.signUp(body);
 }
