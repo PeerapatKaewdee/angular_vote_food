@@ -21,7 +21,7 @@ import { ServiceService } from '../service.service';
   styleUrl: './sign-up.component.css'
 })
 export class SignUpComponent {
-  id:any;
+id:any;
 email: any ;
 pass: any ;
 name: any='';
@@ -30,6 +30,9 @@ name: any='';
   constructor(private http:HttpClient,private service:ServiceService){
     // console.log("country",this.country);
   }
+
+
+  
   async sigup(name:any,email:any,pass:any){
   const body = {
     name: this.name,
