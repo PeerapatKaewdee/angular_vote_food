@@ -53,4 +53,11 @@ export class ServiceService {
     const response = await lastValueFrom(this.http.get(url));
     return response as UserPostResp[];
    }
+
+   public  async getUserByID(id : any){
+    const url = this.constants.API_ENDPOINT+'/user/'+id ;
+    const response = await lastValueFrom(this.http.get(url));
+    return response  as UserPostResp[];
+
+   }
 }
