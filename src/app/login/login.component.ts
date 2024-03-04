@@ -12,6 +12,7 @@ import { ServiceService } from '../service.service';
 import { OnInit } from '@angular/core';
 import { UserPostResp } from '../model/user_res';
 import { CommonModule } from '@angular/common';
+import { Router,RouterOutlet } from '@angular/router';
 import e from 'express';
 import {FormControl, Validators,  ReactiveFormsModule} from '@angular/forms';
 // import {NgForm} from '@angular/forms';
@@ -19,6 +20,7 @@ import {FormControl, Validators,  ReactiveFormsModule} from '@angular/forms';
   selector: 'app-login',
   standalone: true,
   imports: [
+    RouterOutlet,
     CommonModule,
     RouterModule,
     MatFormFieldModule,
@@ -42,7 +44,8 @@ export class LoginComponent implements OnInit {
   id: any = '';
   uid: any;
   person: any[] = [];
-  constructor(private http: HttpClient, private service: ServiceService) {}
+  // router: any;
+  constructor(private http: HttpClient, private service: ServiceService,private router: Router) {}
   
   ngOnInit(): void {
     this.service.getUser((Response: any) => {
@@ -79,7 +82,7 @@ if(email.value && password.value){
         
       
         if (user.type === 1) {
-          //ไปที่หน้า addMin
+          this.router.navigateByUrl('/addmin/'+user.uid);
           console.log('user.email', user.email);
         console.log('user.pass', user.pass);
         } else if(user.type === 0){
