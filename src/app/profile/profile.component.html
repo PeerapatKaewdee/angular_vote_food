@@ -37,11 +37,23 @@
         </div>
     </nav>
     <!-- Add this inside the <body> tag -->
+       
     <div class="circle-card">
         <div class="card-content">
 
         </div>
+        <div *ngFor ="let name of name" style="margin-left: 160px;"> 
+            
+            <h1>
+                {{name.name}}
+            </h1>
+        </div>
     </div>
+    
+       
+    
+   
+    
 
     <div class="button-container">
         <button mat-button type="button" [routerLink]="'/edit'" class="custom-button"
