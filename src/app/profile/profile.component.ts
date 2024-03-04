@@ -24,8 +24,7 @@ export class ProfileComponent {
   person: any[] = [];
   img:any;
   constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute :ActivatedRoute) {
-
-  // this.get_img();    
+ 
   }
   
   async ngOnInit(): Promise<void> {

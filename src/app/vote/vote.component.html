@@ -45,10 +45,11 @@
             <mat-card-content style="display: flex; justify-content: space-between; padding: 0 10px;">
 
                 <!-- First Card (Left) -->
-                <a (click)="score(this.img1.fid)"><mat-card class="cardVS"
+                <a href="/vote/{{this.id}}"><mat-card class="cardVS"
                         style=" background-color: red; margin-right: 15px;">
 
-                        <img style="background-size: cover;" src="{{this.img1.img}}" alt="" width="100%" height="100%">
+                        <img (click)="vote_A(this.img1.score,this.img2.score)" style="background-size: cover;"
+                            src="{{this.img1.img}}" alt="" width="100%" height="100%">
 
 
                     </mat-card></a>
@@ -60,11 +61,12 @@
                 </div>
 
                 <!-- Second Card (Right) -->
-                <mat-card class="cardVS" style=" background-color: blue; margin-left: 15px;">
-                    <img (click)="score(this.img2.fid)" style="background-size: cover;" src="{{this.img2.img}}" alt=""
-                        width="100%" height="100%">
+                <a href="/vote/{{this.id}}"><mat-card class="cardVS"
+                        style=" background-color: blue; margin-left: 15px;">
+                        <img (click)="vote_B(this.img2.score,this.img1.score)" style="background-size: cover;"
+                            src="{{this.img2.img}}" alt="" width="100%" height="100%">
 
-                </mat-card>
+                    </mat-card></a>
 
             </mat-card-content>
         </mat-card>
