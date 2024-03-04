@@ -74,15 +74,20 @@ export class VoteComponent {
       
   // }
   async EloAgloliotrum(fid_win: any,winner:any,numWin:any , fid_lost: any,lost:any,numlost:any) :Promise<any>{
-  const  K = this.rating(lost);
+  const  K = this.rating(winner);
   const E_a  =  1 / (1 + 10**(-(lost - winner) / 400));
   const E_b  =  1 / (1 + 10**(-(winner - lost) / 400));
   console.log("K=",K);
-  const rA = winner + (K**(numWin  - E_a));
-  const rB = lost + (K**(numlost  - E_b));
+  const rA = winner + (K*(numWin  - E_a));
+  const rB = lost + (K*(numlost  - E_b));
   console.log("r_A",rA);
+  console.log("fid_win",fid_win);
   await this.service.upscore(fid_win, rA);
   console.log("r_B",rB);
+  console.log("fid_lost",fid_lost);
+  // const  R_b = 1400 + (20 * (0 - 0.427));
+  // console.log("R-b",R_b);
+  
   await this.service.upscore(fid_lost, rB);
 
   // location.reload();
@@ -94,7 +99,7 @@ export class VoteComponent {
 rating(rating:any) : any{
 
   if(rating <=1000 ){
-      return 600;
+      return 200;
   }else if(rating>1000  &&  rating<=3000){
     return 100;
 
