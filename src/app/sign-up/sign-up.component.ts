@@ -25,7 +25,7 @@ export class SignUpComponent {
 email: any ;
 pass: any ;
 name: any='';
-country: any;
+// country: any;
 
   constructor(private http:HttpClient,private service:ServiceService){
     // console.log("country",this.country);
