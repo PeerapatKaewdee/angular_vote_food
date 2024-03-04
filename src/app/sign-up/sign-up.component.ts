@@ -11,6 +11,7 @@ import { lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceService } from '../service.service';
+import {UserPostResp} from "../model/user_res";
 // import { MatFormField } from '@angular/material/input';
 // import { MatFormFieldControl } from '@angular/material/form-field';
 @Component({
@@ -29,6 +30,7 @@ name: any='';
 
   constructor(private http:HttpClient,private service:ServiceService){
     // console.log("country",this.country);
+    // this.profileid();
   }
   async sigup(name:any,email:any,pass:any){
   const body = {
@@ -38,6 +40,10 @@ name: any='';
     pass: this.pass
   }
   console.log("body",body);
+  console.log(this.id);
+  const test = await this.service.signUp(body);
+  console.log("test",test);
+  
 
   
   
