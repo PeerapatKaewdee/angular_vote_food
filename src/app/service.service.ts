@@ -60,4 +60,9 @@ export class ServiceService {
     return response  as UserPostResp[];
 
    }
+   public async getRanking(){
+    const url = this.constants.API_ENDPOINT+'/foods/ranking';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as UserPostResp[];
+   }
 }

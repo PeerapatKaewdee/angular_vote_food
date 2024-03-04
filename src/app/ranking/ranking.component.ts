@@ -20,10 +20,11 @@ export class RankingComponent {
   user: UserPostResp[] = [];
   id: any = '';
   uid: any;
-  person: any[] = [];
+  ranking:any;
 
   constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute){
    this.id =  this.service.id;
+   this.getRanking();
    console.log("service.id",this.service.id);
    console.log("this.id",this.id);
    
@@ -36,10 +37,9 @@ export class RankingComponent {
     });
   }
 
-  async callAip() {
-    this.user = await this.service.getUser();
-
-    console.log(this.user);
+  async getRanking() {
+    this.ranking = await this.service.getRanking();
+    console.log("ranking",this.ranking);
   }
 
 }
