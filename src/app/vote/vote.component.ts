@@ -101,22 +101,22 @@ rating(rating:any) : any{
   if(rating <=1000 ){
       return 200;
   }else if(rating>1000  &&  rating<=3000){
-    return 100;
+    return 400;
 
   }else if(rating>3000  &&  rating<=4000){
-    return 80;
+    return 300;
 
   }else if(rating>4000  &&  rating<=6000){
-    return 70;
+    return 200;
 
   }else if(rating>6000  &&  rating<=7000){
-    return 60;
+    return 190;
 
   }else if(rating>7000  &&  rating<=9000){
-    return 50;
+    return 180;
 
   }else{
-    return 40;
+    return 150;
   }
 }
 vote_A(winner: any , lost:any){
