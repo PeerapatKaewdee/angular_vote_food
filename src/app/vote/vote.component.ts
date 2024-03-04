@@ -93,21 +93,21 @@ export class VoteComponent {
 }
 rating(rating:any) : any{
 
-  if(rating <=100 ){
+  if(rating <=1000 ){
       return 600;
-  }else if(rating>100  &&  rating<=300){
+  }else if(rating>1000  &&  rating<=3000){
     return 400;
 
-  }else if(rating>300  &&  rating<=400){
+  }else if(rating>3000  &&  rating<=4000){
     return 300;
 
-  }else if(rating>400  &&  rating<=600){
+  }else if(rating>4000  &&  rating<=6000){
     return 200;
 
-  }else if(rating>600  &&  rating<=700){
+  }else if(rating>6000  &&  rating<=7000){
     return 190;
 
-  }else if(rating>700  &&  rating<=900){
+  }else if(rating>7000  &&  rating<=9000){
     return 180;
 
   }else{
