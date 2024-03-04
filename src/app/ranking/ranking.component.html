@@ -43,43 +43,25 @@
     <div style="position: relative;">
         <mat-card class="cardbody">
             <mat-card-content>
-                <table class="table table-striped text-center" >
-                    <thead>
-                        <tr>
-                            <th scope="col">Ranking</th>
-                            <th scope="col">Like</th>
-                            <th scope="col">Foods</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                            <!-- <th scope="col"></th> -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th style="width: 8%;" scope="row">1</th>
-                            <td style="width: 20%;">Mark</td>
-                            <td style="width: 57%;">Otto</td>
-                            <td style="width: 15%;">
-                                <button style="border-radius: 10px;" mat-raised-button color="primary"
-                                    routerLink="/viewfood">
-                                    confirm
-                                </button>
-                            </td>
-                            <td style="width: 15%;"> <button style="border-radius: 10px; margin-bottom: 10px"
-                                    mat-raised-button color="primary" routerLink="/viewfood">
-                                    confirm
-                                </button></td>
-                            <!-- <td>@mdo</td> -->
-                        </tr>
+                <div style="display: flex; justify-content: start; ">
+                    <h3 style="padding-left: 16px;">Ranking</h3>
+                    <h3 style="padding-left: 16%;">Like</h3>
+                    <h3 style="padding-left: 16%;">Food</h3>
+                    <h3 style="padding-left: 20%;">User</h3>
+                </div>
 
-                    </tbody>
-                </table>
             </mat-card-content>
-
-
+            <button
+            style="border-radius: 10px; margin-bottom: 10px"
+            mat-raised-button
+            color="primary"
+           routerLink="/viewfood"
+          >
+          confirm
+          </button>
         </mat-card>
 
-
+        
     </div>
 
     <!-- Your remaining HTML code -->
