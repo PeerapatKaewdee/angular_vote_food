@@ -14,6 +14,11 @@ import {MatCardModule} from '@angular/material/card';
 })
 export class SignUpComponent {
 
+  id:any;
+  name:any;
+  email:any;
+  pass:any;
+
   constructor(){
     
   }
