@@ -44,7 +44,7 @@ name: any='';
   }
   console.log("body",body as UserPostResp );
   console.log(this.id);
-  const test = await this.service.signUp(body as UserPostResp);
+  const test = await this.service.signUp(body);
   console.log("test",test);
   
 
