@@ -37,7 +37,8 @@
         </div>
     </nav>
     <!-- Add this inside the <body> tag -->
-    <div style="margin-left: 30px; display: flex; align-items: center;"> <!-- Adjust margin-left as needed -->
+    <div *ngIf="img" style="margin-left: 30px; display: flex; align-items: center;">
+        <!-- Adjust margin-left as needed -->
         <div class="circle-card">
             <img src="{{this.img[0].avatar}}" alt="">
         </div>

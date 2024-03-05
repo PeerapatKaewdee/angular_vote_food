@@ -3,59 +3,37 @@
     <mat-card-content style="margin-top: 5px">
       <div class="row" style="justify-content: space-between; display: flex">
         <div>
-          <img
-            src="assets/images/Rectangle.png"
-            height="440px"
-            width="580px"
-            alt="good"
-          />
+          <img src="assets/images/Rectangle.png" height="440px" width="580px" alt="good" />
         </div>
 
         <div>
           <div style="display: flex; margin-left: 20%">
-            <img
-              src="assets/images/2 1.png"
-              height="150px"
-              width="150px"
-              alt="good"
-            />
+            <img src="assets/images/2 1.png" height="150px" width="150px" alt="good" />
           </div>
           <form class="example-form">
             <div class="inputfield">
               <label style="color: rgb(0, 0, 0)">Email</label>
               <input type="email" placeholder="name@gmail.com" #email required>
             </div>
-            
+
             <div class="inputfield">
               <label style="color: rgb(0, 0, 0)">Password</label>
               <input type="password" placeholder="Password" #password required>
             </div>
-            
 
-            <div
-              style="
+
+            <div style="
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
                 margin-top: 10px;
-              "
-            >
-              <button
-                style="border-radius: 10px; margin-bottom: 10px"
-                mat-raised-button
-                color="primary"
-                [routerLink]="'/signup'"
-              >
+              ">
+              <button style="border-radius: 10px; margin-bottom: 10px" mat-raised-button color="primary"
+                [routerLink]="'/signup'">
                 Sign Up
               </button>
-              <button
-                style="border-radius: 10px; margin-bottom: 10px"
-                mat-raised-button
-                color="warn"
-              
-                (click)="login(email,password)"
-                routerLink="/profile/{{this.uid}}"
-              >
+              <button style="border-radius: 10px; margin-bottom: 10px" mat-raised-button color="warn"
+                (click)="login(email,password)">
                 Log in
               </button>
             </div>
@@ -67,4 +45,3 @@
 
   <!-- <button (click)="callAip()">get user</button> -->
 </div>
-

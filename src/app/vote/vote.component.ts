@@ -10,10 +10,12 @@ import { UserPostResp } from '../model/user_res';
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs';
 import { tick } from '@angular/core/testing';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-vote',
   standalone: true,
-  imports: [MatToolbarModule,MatButtonModule,MatIconModule,RouterModule,MatCardModule,HttpClientModule],
+  imports: [MatToolbarModule,MatButtonModule,MatIconModule,RouterModule,MatCardModule,HttpClientModule,CommonModule],
   templateUrl: './vote.component.html',
   styleUrl: './vote.component.css'
 })

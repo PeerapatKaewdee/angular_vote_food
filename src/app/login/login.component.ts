@@ -82,7 +82,7 @@ if(email.value && password.value){
         
       
         if (user.type === 1) {
-          
+
           this.router.navigateByUrl('/addmin/'+user.uid);
           console.log('user.email', user.email);
         console.log('user.pass', user.pass);
@@ -90,6 +90,7 @@ if(email.value && password.value){
           console.log('user.email', user.email);
           console.log('user.pass', user.pass);
           console.log('type', user.type);
+          this.router.navigateByUrl('/profile/'+user.uid);
           this.uid = user.uid;
           console.log("uid",this.uid);
           this.person.push(user);

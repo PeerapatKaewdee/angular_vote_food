@@ -8,11 +8,12 @@ import { ServiceService } from '../service.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UserPostResp } from '../model/user_res';
 import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-vote-no-user',
   standalone: true,
-  imports: [MatToolbarModule,MatButtonModule,MatIconModule,RouterModule,MatCardModule],
+  imports: [MatToolbarModule,MatButtonModule,MatIconModule,RouterModule,MatCardModule,CommonModule],
   templateUrl: './vote-no-user.component.html',
   styleUrl: './vote-no-user.component.css'
 })
