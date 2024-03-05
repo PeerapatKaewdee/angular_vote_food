@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
     console.log('pass', password.value);
 
     this.user = await this.service.getUser();
-    console.log(this.user);
+    // console.log(this.user);
 if(email.value && password.value){
 
 
@@ -84,16 +84,16 @@ if(email.value && password.value){
         if (user.type === 1) {
 
           this.router.navigateByUrl('/addmin/'+user.uid);
-          console.log('user.email', user.email);
-        console.log('user.pass', user.pass);
+        //   console.log('user.email', user.email);
+        // console.log('user.pass', user.pass);
         } else if(user.type === 0){
-          console.log('user.email', user.email);
-          console.log('user.pass', user.pass);
-          console.log('type', user.type);
+          // console.log('user.email', user.email);
+          // console.log('user.pass', user.pass);
+          // console.log('type', user.type);
           this.router.navigateByUrl('/profile/'+user.uid);
-          this.uid = user.uid;
-          console.log("uid",this.uid);
-          this.person.push(user);
+          // this.uid = user.uid;
+          // console.log("uid",this.uid);
+          // this.person.push(user);
           
           // ไปที่หน้าporfile
         }
