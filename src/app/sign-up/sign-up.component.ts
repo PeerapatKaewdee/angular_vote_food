@@ -35,7 +35,7 @@ name: any='';
 
 
   
-  async sigup(name:any,email:any,pass:any){
+  async sigup(){
   const body = {
     name: this.name,
     type:0,
