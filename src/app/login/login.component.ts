@@ -82,6 +82,7 @@ if(email.value && password.value){
         
       
         if (user.type === 1) {
+          
           this.router.navigateByUrl('/addmin/'+user.uid);
           console.log('user.email', user.email);
         console.log('user.pass', user.pass);
