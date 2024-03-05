@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input'; 
@@ -28,7 +28,7 @@ pass: any ;
 name: any='';
 // country: any;
 
-  constructor(private http:HttpClient,private service:ServiceService){
+  constructor(private http:HttpClient,private service:ServiceService,private router:Router){
     // console.log("country",this.country);
     // this.profileid();
   }
@@ -55,5 +55,7 @@ name: any='';
   async profileid(){
    this.id = await this.service.get_new_user();
    this.service.id = this.id;
+   this.router.navigateByUrl('/addmin/'+this.id);
+
 }
 }
