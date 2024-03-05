@@ -46,7 +46,7 @@ name: any='';
   console.log(this.id);
   const test = await this.service.signUp(body);
   console.log("test",test);
-  
+  this. profileid();
 
   
   
