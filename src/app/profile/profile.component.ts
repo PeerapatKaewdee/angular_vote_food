@@ -9,6 +9,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ServiceService } from '../service.service';
 import { UserPostResp } from '../model/user_res';
 import { ActivatedRoute } from '@angular/router';
+// import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -18,12 +19,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProfileComponent {
 
+
   user: UserPostResp[] = [];
   id: any = '';
   uid: any;
   name :any ;
   person: any[] = [];
   img:any;
+  imgUser: any ='';
+  selectedFile: File | null = null;
   constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute :ActivatedRoute) {
 
   // this.get_img();    
@@ -53,6 +57,30 @@ export class ProfileComponent {
 
     console.log(this.user);
   }
+  file(event:any){
+
+    const formData = new  FormData();
+    formData.append('file', event);
+
+  }
+  uploadImage() {
+    if (this.selectedFile) {
+        const formData = new FormData();
+        formData.append('file', this.selectedFile);
+    console.log("selectedFile2", this.selectedFile);
+
+        // console.log("formData", formData.append);
+
+        // Here you can make an HTTP request to upload the file using formData
+    }
+}
+
+onFileSelected(event: any): void {
+    this.selectedFile = event.target.files[0];
+    console.log("selectedFile1", this.selectedFile);
+    // Optionally, you can call uploadImage() here if you want to upload the file immediately after selection
+}
+
 
 
   

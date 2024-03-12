@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Constants } from './config/component';
 import { Injectable } from '@angular/core';
 import { UserPostResp } from '../app/model/user_res';
+import { profile } from '../app/model/user_res';
 import { lastValueFrom } from 'rxjs';
 import { response } from 'express';
 
@@ -59,5 +60,10 @@ export class ServiceService {
     const response = await lastValueFrom(this.http.get(url));
     return response  as UserPostResp[];
 
+   }
+   public async post_upProfile(){
+    const url = this.constants.API_ENDPOINT + '';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as profile[];
    }
 }

@@ -46,15 +46,20 @@
 
                 <!-- First Card (Left) -->
                 <!-- <a href="/vote/{{this.id}}"> -->
-                <a (click)="vote()"><mat-card class="cardVS" style=" background-color: red; margin-right: 15px;">
+                <div>
+                    <a (click)="vote()"><mat-card class="cardVS" style=" background-color: red; margin-right: 15px;">
 
-                        <img (click)="vote_A(this.img1.score,this.img2.score)" style="background-size: cover;"
-                            src="{{this.img1.img}}" alt="" width="100%" height="100%">
+                            <img (click)="vote_A(this.img1.score,this.img2.score)" style="background-size: cover;"
+                                src="{{this.img1.img}}" alt="" width="100%" height="100%">
+                        </mat-card>
 
-
-                    </mat-card>
-                    <h1 style="display: flex;justify-content: center;align-items: center;">{{this.img1.name}}</h1>
-                </a>
+                    </a>
+                    <div
+                        style="text-align: center; display: flex;justify-content: center;align-items: center; margin-top: 10px;">
+                        <h1 style="width: 300px;">
+                            {{this.img1.name}}</h1>
+                    </div>
+                </div>
 
 
                 <!-- Logo (Centered and Overlapping) -->
@@ -63,15 +68,23 @@
                         style="width: 200px; height: 200px;">
                 </div>
 
+                <div>
+
+                    <a (click)="vote()"><mat-card class="cardVS" style=" margin-left: 15px;">
+                            <img (click)="vote_B(this.img2.score,this.img1.score)" style="background-size: cover;"
+                                src="{{this.img2.img}}" alt="" width="100%" height="100%">
+
+
+                        </mat-card>
+
+                    </a>
+                    <div
+                        style="text-align: center; display: flex;justify-content: center;align-items: center; margin-top: 10px;">
+                        <h1 style="width: 300px;">
+                            {{this.img2.name}}</h1>
+                    </div>
+                </div>
                 <!-- Second Card (Right) -->
-                <a (click)="vote()"><mat-card class="cardVS" style=" margin-left: 15px;">
-                        <img (click)="vote_B(this.img2.score,this.img1.score)" style="background-size: cover;"
-                            src="{{this.img2.img}}" alt="" width="100%" height="100%">
-
-
-                    </mat-card>
-                    <h1 style="display: flex;justify-content: center;align-items: center;">{{this.img2.name}}</h1>
-                </a>
 
             </mat-card-content>
         </mat-card>
