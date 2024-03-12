@@ -9,6 +9,7 @@ import { VoteComponent } from './vote/vote.component';
 import { ViewFoodComponent } from './view-food/view-food.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { AddminComponent } from './addmin/addmin.component';
+import { GraphComponent } from './graph/graph.component';
 export const routes: Routes = [
 
     {path : '' , component :VoteNoUserComponent },
@@ -20,6 +21,6 @@ export const routes: Routes = [
     {path : 'edit' , component : EditComponent}, 
     {path : 'viewfood',component : ViewFoodComponent},
     {path : 'viewprofile',component : ViewProfileComponent},
-    {path : 'addmin/:id',component : AddminComponent}
-   
+    {path : 'addmin/:id',component : AddminComponent},
+    {path : 'graph',component : GraphComponent}
 ];
