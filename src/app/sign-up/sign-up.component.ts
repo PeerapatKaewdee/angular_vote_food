@@ -55,7 +55,7 @@ name: any='';
   async profileid(){
    this.id = await this.service.get_new_user();
    this.service.id = this.id;
-   this.router.navigateByUrl('/addmin/'+this.id);
+   this.router.navigateByUrl('/profile/'+this.id);
 
 }
 }
