@@ -90,8 +90,13 @@ if(email.value && password.value){
           // console.log('user.email', user.email);
           // console.log('user.pass', user.pass);
           // console.log('type', user.type);
-          this.router.navigateByUrl('/profile/'+user.uid);
-          // this.uid = user.uid;
+          // const uid = user.uid as string;
+          // sessionStorage.setItem("uid", user.uid.toString());
+        
+          console.log("uid = ", );
+          
+          this.router.navigateByUrl('/profile/');
+          this.service.id = user.uid;
           // console.log("uid",this.uid);
           // this.person.push(user);
           
