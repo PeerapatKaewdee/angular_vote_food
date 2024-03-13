@@ -61,9 +61,9 @@ export class ServiceService {
     return response  as UserPostResp[];
 
    }
-   public async post_upProfile(){
-    const url = this.constants.API_ENDPOINT + '';
-    const response = await lastValueFrom(this.http.get(url));
+   public async post_upProfile(body : FormData){
+    const url = this.constants.API_ENDPOINT + '/uplaods/profile';
+    const response = await lastValueFrom(this.http.post(url,body));
     return response as profile[];
    }
 }
