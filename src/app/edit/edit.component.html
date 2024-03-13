@@ -1,67 +1,57 @@
 <div class="cardposition">
-    <mat-card class="cardbody">
-      <div>
-        <img style="width: 100px; height: 100px;" src="../../assets/images/2 1.png" alt="">
+  <mat-card class="cardbody">
+    <div>
+      <img style="width: 100px; height: 100px;" src="../../assets/images/2 1.png" alt="">
     </div>
     <div style="display: flex; justify-content: center;">
       <div>
         <div style="display: flex; justify-content: center;">
-        <h1>แก้ไขข้อมูลส่วนตัว</h1>
+          <h1>แก้ไขข้อมูลส่วนตัว</h1>
         </div>
         <form class="example-form">
           <div class="inputfield">
             <!-- <label style="color: rgb(0, 0, 0)">Password</label> -->
-            <input type="text" placeholder="username" #name >
+            <input type="text" placeholder="username" #name>
           </div>
           <div class="inputfield">
             <!-- <label style="color: rgb(0, 0, 0)">Password</label> -->
-            <input type="text" placeholder="lastname" #lastname >
+            <input type="text" placeholder="lastname" #lastname>
           </div>
           <div class="inputfield">
             <!-- <label style="color: rgb(0, 0, 0)">Email</label> -->
-            <input type="email" placeholder="name@gmail.com" #email >
+            <input type="email" placeholder="name@gmail.com" #email>
           </div>
-          
+
           <div class="inputfield">
             <!-- <label style="color: rgb(0, 0, 0)">Password</label> -->
-            <input type="password" placeholder="Password" #password >
+            <input type="password" placeholder="Password" #password>
           </div>
 
           <div class="inputfield">
             <!-- <label spicture"color: rgb(0, 0, 0)">Password</label> -->
-            <input type="file"holder="Password" #password >
+            <input type="file" holder="Password" #file>
           </div>
-          <div
-          style="
+          <div style="
             display: flex;
             flex-wrap: wrap;
             justify-content:space-evenly;
             margin-top: 10px;
-          "
-        >
-          <button
-            style="border-radius: 10px; margin-bottom: 10px; background-color: yellow;"
-            mat-raised-button
-            (click)="goBack()"
-          >
-           Back
-          </button>
-          <button
-            style="border-radius: 10px; margin-bottom: 10px"
-            mat-raised-button
-            color="primary"
-           
-          >
-          confirm
-          </button>
+          ">
+            <button style="border-radius: 10px; margin-bottom: 10px; background-color: yellow;" mat-raised-button
+              (click)="profile()">
+              Back
+            </button>
+            <button style="border-radius: 10px; margin-bottom: 10px" mat-raised-button color="primary"
+              (click)="confrim(name,lastname,email,password)">
+              confirm
+            </button>
           </div>
         </form>
       </div>
     </div>
-      <!-- <mat-card-content style="margin-top: 1px">
+    <!-- <mat-card-content style="margin-top: 1px">
         
       </mat-card-content> -->
-   
-    </mat-card>
-  </div>
-  
+
+  </mat-card>
+</div>
