@@ -21,13 +21,13 @@
             </div>
             <button mat-button>Profile</button>
 
-            <button type="button" class="btn btn-light" routerLink="/vote/{{this.id}}"
+            <button type="button" class="btn btn-light" (click)="vote()"
                 style="background-color: rgb(255, 255, 255); display: flex; justify-content: space-between; align-items: center;border-radius: 10px;">
                 <img style="width: 20%; height: fit-content" src="../../assets/images/Vector (1).png" alt="">
                 <span style="font-size: 150%;">Food</span> <img style="width: 25%; height: fit-content;"
                     src="../../assets/images/emojione-monotone_pot-of-food.png" alt="">
             </button>
-            <button mat-button [routerLink]="'/ranking/{{this.id}}'">Ranking</button>
+            <button mat-button (click)="ranking()">Ranking</button>
 
             <div></div>
             <div></div>
@@ -57,7 +57,7 @@
             <img src="../../assets/images/teenyicons_user-square-outline (1).png" alt="" style="height: 15px;">
         </button>
         <div>
-            <input type="file" (change)="onFileSelected($event)" accept="image/*">
+            <input  type="file" (change)="onFileSelected($event)" accept="image/*">
             <!-- <button (click)="uploadImage()">upload</button> -->
         </div>
 
