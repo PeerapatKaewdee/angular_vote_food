@@ -62,7 +62,7 @@ export class ServiceService {
 
    }
    public async post_upProfile(body : FormData){
-    const url = this.constants.API_ENDPOINT + '/uplaods/profile';
+    const url = this.constants.API_ENDPOINT + '/uplaods/';
     const response = await lastValueFrom(this.http.post(url,body));
     return response as profile[];
    }
