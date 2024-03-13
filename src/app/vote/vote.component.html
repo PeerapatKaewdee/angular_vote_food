@@ -19,7 +19,7 @@
             <div>
                 <img style="width: 20%; height: 100%;" src="../../assets/images/2 1.png" alt="">
             </div>
-            <button routerLink="/profile/{{this.id}}" mat-button>Profile</button>
+            <button (click)="profile()" mat-button>Profile</button>
 
             <button type="button" class="btn btn-light"
                 style="background-color: rgb(255, 255, 255); display: flex; justify-content: space-between; align-items: center;border-radius: 10px;">
@@ -27,7 +27,7 @@
                 <span style="font-size: 150%;">Food</span> <img style="width: 25%; height: fit-content;"
                     src="../../assets/images/emojione-monotone_pot-of-food.png" alt="">
             </button>
-            <button mat-button routerLink="/ranking/{{this.id}}">Ranking</button>
+            <button mat-button (click)="ranking()">Ranking</button>
 
             <div></div>
             <div></div>
