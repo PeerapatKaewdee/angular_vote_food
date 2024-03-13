@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
 import { ServiceService } from '../service.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -36,7 +36,7 @@ export class VoteComponent {
 
   person: any[] = [];
 
-   constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute){
+   constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute,private router : Router){
 
     this.vote();
     // this.EloAgloliotrum(1000,1,100,0);
@@ -44,18 +44,17 @@ export class VoteComponent {
     // console.log(this.num);
     if(this.service.id){
       this.id = this.service.id;
-      console.log("service.id",this.service.id);
-      console.log("this.id",this.id);
+      console.log("service.id_vote",this.service.id);
+      console.log("this.id_vote",this.id);
     }
 
     
     
   }
   ngOnInit(): void {
-    this.id = this.ActivatedRoute.snapshot.paramMap.get('uid') || ' ';
+    // this.id = this.ActivatedRoute.snapshot.paramMap.get('uid') || ' ';
     console.log(this.id);
-    this.service.id = this.id;
-
+    // this.service.id = this.id;
     // this.service.getUser((Response: any) => {
     //   console.log(Response);
     // });
@@ -141,6 +140,15 @@ vote_B(winner: any , lost:any){
 
 
 
+}
+profile(){
+  this.service.id = this.id;
+  console.log(this.service.id);
+  this.router.navigateByUrl('/profile/');
+}
+ranking(){
+  this.service = this.id;
+  this.router.navigateByUrl('/ranking/');
 }
 
 }
