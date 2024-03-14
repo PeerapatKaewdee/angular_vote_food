@@ -1,30 +1,34 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Document</title>
-</head>
-<body>
-    <div class="cardposition">
-        <mat-card class="cardbody">
-          <div>
-            <img style="width: 100px; height: 100px;" src="../../assets/images/2 1.png" alt="">
-          </div>
-          <div style="display: flex; justify-content: center;">
-            <div>
-              <div style="display: flex; justify-content: center;">
-                <h1>สถิติ</h1>
-              </div>
-              <canvas id="lineChart" width="400" height="400"></canvas>
-            </div>
-          </div>
-        </mat-card>
-      </div>
-      
-</body>
-</html>
 
-  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="cardposition">
+    <mat-card class="cardbody">
+      <div>
+        <img style="width: 100px; height: 100px;" src="../../assets/images/2 1.png" alt="">
+      </div>
+      <div style="display: flex; justify-content: center;">
+        <div>
+          <div style="display: flex; justify-content: center;">
+            <h1>สถิติ</h1>
+          </div>
+          <!-- <canvas id="lineChart" width="400" height="400"></canvas> -->
+
+          <div class="card">
+            <p-chart type="line" [data]="data" ></p-chart>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+</body>
+
+</html>
