@@ -42,7 +42,7 @@ export class ProfileComponent {
     this.service.id = this.id;
     console.log("service.id",this.service.id);
     this.img = await this.service.get_foods_img(this.id);
-    // this.name = await this.service.getUserByID(this.id);
+    this.name = await this.service.getUserByID(this.id);
     console.log("name",this.name);
     
     console.log("img",this.img);
