@@ -93,6 +93,10 @@ ranking(){
   this.service = this.id;
   this.router.navigateByUrl('/ranking/');
 }
+foods(){
+  this.service = this.id;
+  this.router.navigateByUrl('/foods/');
+}
   
 vote(){
   this.service = this.id;
