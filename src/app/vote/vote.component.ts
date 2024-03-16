@@ -33,7 +33,7 @@ export class VoteComponent {
   rB:any;
   E_a:any;
   E_b:any;
-
+  date :Date = new Date();
   person: any[] = [];
 
    constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute,private router : Router){
@@ -82,16 +82,27 @@ export class VoteComponent {
 
   const rA = winner + (K*(numWin  - E_a));
   const rB = lost + (K*(numlost  - E_b));
-
+  const formattedDate = `${this.date.getFullYear()}-${this.date.getMonth() + 1}-${this.date.getDate()}`;
   console.log("r_A",rA);
   console.log("fid_win",fid_win);
+  const win_body = {
+    fid:fid_win,
+    date:formattedDate,
+    score:rA
+  }
+  await this.service.insert_hiss(win_body);
   await this.service.upscore(fid_win, rA);
+  const lose_body = {
+    fid:fid_lost,
+    date:formattedDate,
+    score:rB
+  }
   console.log("r_B",rB);
   console.log("fid_lost",fid_lost);
+  await this.service.insert_hiss(lose_body);
+  await this.service.upscore(fid_lost, rB);
   // const  R_b = 1400 + (20 * (0 - 0.427));
   // console.log("R-b",R_b);
-  
-  await this.service.upscore(fid_lost, rB);
 
   // location.reload();
 
