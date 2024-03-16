@@ -8,28 +8,28 @@
         <div style="display: flex; justify-content: center;">
           <h1>แก้ไขข้อมูลส่วนตัว</h1>
         </div>
-        <div class="example-form" *ngFor="let user of data">
+        <form class="example-form">
           <div class="inputfield">
             <!-- <label style="color: rgb(0, 0, 0)">Password</label> -->
-            <input type="text" placeholder="{{user.name}}" [(ngModel)]="name">
+            <input type="text" placeholder="username" #name>
           </div>
           <div class="inputfield">
             <!-- <label style="color: rgb(0, 0, 0)">Password</label> -->
-            <input type="text" value="{{user.last_name}}" [(ngModel)]="lastname">
+            <input type="text" placeholder="lastname" #lastname>
           </div>
           <div class="inputfield">
             <!-- <label style="color: rgb(0, 0, 0)">Email</label> -->
-            <input type="email" value="{{user.email}}" [(ngModel)]="email">
+            <input type="email" placeholder="name@gmail.com" #email>
           </div>
 
           <div class="inputfield">
             <!-- <label style="color: rgb(0, 0, 0)">Password</label> -->
-            <input type="password" value="{{user.pass}}" [(ngModel)]="pass">
+            <input type="password" placeholder="Password" #password>
           </div>
 
           <div class="inputfield">
             <!-- <label spicture"color: rgb(0, 0, 0)">Password</label> -->
-            <input type="file" (change)="onFileSelected($event)" accept="image/*">
+            <input type="file" holder="Password" #file>
           </div>
           <div style="
             display: flex;
@@ -42,11 +42,11 @@
               Back
             </button>
             <button style="border-radius: 10px; margin-bottom: 10px" mat-raised-button color="primary"
-              (click)="confrim()">
+              (click)="confrim(name,lastname,email,password)">
               confirm
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
     <!-- <mat-card-content style="margin-top: 1px">

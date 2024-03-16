@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatButtonModule} from '@angular/material/button';
@@ -14,32 +13,20 @@ import e from 'express';
 @Component({
   selector: 'app-edit',
   standalone: true,
-  imports: [ CommonModule,RouterModule ,MatFormFieldModule,MatToolbarModule,MatButtonModule,MatInputModule,MatIconModule,MatCardModule, FormsModule],
+  imports: [ RouterModule ,MatFormFieldModule,MatToolbarModule,MatButtonModule,MatInputModule,MatIconModule,MatCardModule, FormsModule],
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.css'
 })
 
-export class EditComponent implements OnInit{
+export class EditComponent {
 
-  name:any;
-  lastname:any;
-  email:any;
-  pass:any;
-  selectedFile:any;
-  id: any;
-  data:any = '';
+id: any;
 
   constructor(private http: HttpClient, private service: ServiceService, private router : Router) {
     this.id = this.service.id;
     console.log(this.id);
-    this.user();
     
   // this.get_img();    
-  }
-  ngOnInit(): void {
-    console.log("oninit id",this.id);
-    // this.service.id = this.id;
-
   }
   goBack() {
     // Implementing window.back to go back to the previous location
@@ -49,20 +36,17 @@ export class EditComponent implements OnInit{
     this.service.id = this.id;
     this.router.navigateByUrl('/profile/');
   }
-  confrim() {
-    console.log("name",this.name);
-    console.log("lastName",this.lastname);
-    console.log("email",this.email);
-    console.log("pass",this.pass);
+  confrim(name:any,lastname:any,email:any,pass:any) {
+    console.log("name",name);
+    console.log("lastName",lastname);
+    console.log("email",email);
+    console.log("pass",pass);
     // console.log("file",file);
+    
+    throw new Error('Method not implemented.');
     }
-    onFileSelected(event: any): void {
-      this.selectedFile = event.target.files[0];
-      console.log("selectedFile1", this.selectedFile);
-      // Optionally, you can call uploadImage() here if you want to upload the file immediately after selection
+    vote(){
+
     }
-    async user(){
-      this.data = await this.service.getUserByID(this.id);
-   console.log(this.data);
-    }
+
 }
