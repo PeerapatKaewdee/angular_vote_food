@@ -66,4 +66,7 @@ export class ServiceService {
     const response = await lastValueFrom(this.http.post(url,body));
     return response as profile[];
    }
+   public async put_data_user(body : UserPostResp){
+    
+   }
 }
