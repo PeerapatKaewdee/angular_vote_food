@@ -11,20 +11,20 @@
         <div class="example-form" *ngFor="let user of data">
           <div class="inputfield">
             <!-- <label style="color: rgb(0, 0, 0)">Password</label> -->
-            <input type="text"  [(ngModel)]="name">
+            <input type="text" placeholder="{{user.name}}" [(ngModel)]="name">
           </div>
           <div class="inputfield">
             <!-- <label style="color: rgb(0, 0, 0)">Password</label> -->
-            <input type="text" [(ngModel)]="lastname">
+            <input type="text" value="{{user.last_name}}" [(ngModel)]="lastname">
           </div>
           <div class="inputfield">
             <!-- <label style="color: rgb(0, 0, 0)">Email</label> -->
-            <input type="email" [(ngModel)]="email">
+            <input type="email" value="{{user.email}}" [(ngModel)]="email">
           </div>
 
           <div class="inputfield">
             <!-- <label style="color: rgb(0, 0, 0)">Password</label> -->
-            <input type="password" [(ngModel)]="pass" [value]="user.pass">
+            <input type="password" value="{{user.pass}}" [(ngModel)]="pass">
           </div>
 
           <div class="inputfield">
