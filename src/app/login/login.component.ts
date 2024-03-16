@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
   user: UserPostResp[] = [];
   id: any = '';
   uid: any;
-  person: any[] = [];
+  person: any;
   // router: any;
   constructor(private http: HttpClient, private service: ServiceService,private router: Router) {}
   
@@ -93,10 +93,18 @@ if(email.value && password.value){
           // const uid = user.uid as string;
           // sessionStorage.setItem("uid", user.uid.toString());
         
-          console.log("uid = ", );
-          
+          // console.log("uid = ", sessionStorage.getItem("uid") );
+        //  this.id = this.service.getUserByID(sessionStorage.getItem("uid") )
+          // console.log("this.user",this.person);
+           
+          this.uid = user.uid ;
+         localStorage.setItem("uid",this.uid);
+         this.service.id = localStorage.getItem("uid");
+          console.log(localStorage.getItem("uid"));
           this.router.navigateByUrl('/profile/');
-          this.service.id = user.uid;
+          
+          // console.log(parseInt(this.id)+1);
+          
           // console.log("uid",this.uid);
           // this.person.push(user);
           
