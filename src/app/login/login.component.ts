@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
   user: UserPostResp[] = [];
   id: any = '';
   uid: any;
-  person: any[] = [];
+  person: any;
   // router: any;
   constructor(private http: HttpClient, private service: ServiceService,private router: Router) {}
   
@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
     console.log('pass', password.value);
 
     this.user = await this.service.getUser();
-    console.log(this.user);
+    // console.log(this.user);
 if(email.value && password.value){
 
 
@@ -82,16 +82,31 @@ if(email.value && password.value){
         
       
         if (user.type === 1) {
+
           this.router.navigateByUrl('/addmin/'+user.uid);
-          console.log('user.email', user.email);
-        console.log('user.pass', user.pass);
+        //   console.log('user.email', user.email);
+        // console.log('user.pass', user.pass);
         } else if(user.type === 0){
-          console.log('user.email', user.email);
-          console.log('user.pass', user.pass);
-          console.log('type', user.type);
-          this.uid = user.uid;
-          console.log("uid",this.uid);
-          this.person.push(user);
+          // console.log('user.email', user.email);
+          // console.log('user.pass', user.pass);
+          // console.log('type', user.type);
+          // const uid = user.uid as string;
+          // sessionStorage.setItem("uid", user.uid.toString());
+        
+          // console.log("uid = ", sessionStorage.getItem("uid") );
+        //  this.id = this.service.getUserByID(sessionStorage.getItem("uid") )
+          // console.log("this.user",this.person);
+           
+          this.uid = user.uid ;
+         localStorage.setItem("uid",this.uid);
+         this.service.id = localStorage.getItem("uid");
+          console.log(localStorage.getItem("uid"));
+          this.router.navigateByUrl('/profile/');
+          
+          // console.log(parseInt(this.id)+1);
+          
+          // console.log("uid",this.uid);
+          // this.person.push(user);
           
           // ไปที่หน้าporfile
         }

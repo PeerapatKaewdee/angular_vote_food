@@ -8,11 +8,12 @@ import { ServiceService } from '../service.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UserPostResp } from '../model/user_res';
 import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-vote-no-user',
   standalone: true,
-  imports: [MatToolbarModule,MatButtonModule,MatIconModule,RouterModule,MatCardModule],
+  imports: [MatToolbarModule,MatButtonModule,MatIconModule,RouterModule,MatCardModule,CommonModule],
   templateUrl: './vote-no-user.component.html',
   styleUrl: './vote-no-user.component.css'
 })
@@ -30,7 +31,7 @@ export class VoteNoUserComponent {
   rB:any;
   E_a:any;
   E_b:any;
-
+  date:Date = new Date();
   person: any[] = [];
 
    constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute){
@@ -77,11 +78,24 @@ export class VoteNoUserComponent {
   const E_a  =  1 / (1 + 10**(-(lost - winner) / 400));
   const E_b  =  1 / (1 + 10**(-(winner - lost) / 400));
   console.log("K=",K);
-  const rA = winner + (K**(numWin  - E_a));
-  const rB = lost + (K**(numlost  - E_b));
+  // const formattedDate = `${this.date.getFullYear()}-${this.date.getMonth() + 1}-${this.date.getDate()}`;
+  const rA = winner + (K*(numWin  - E_a));
+  const rB = lost + (K*(numlost  - E_b));
   console.log("r_A",rA);
+  const win_body = {
+    fid:fid_win,
+    date:this.date,
+    score:rA
+  }
+  await this.service.insert_hiss(win_body);
   await this.service.upscore(fid_win, rA);
+  const lose_body = {
+    fid:fid_lost,
+    date:this.date,
+    score:rB
+  }
   console.log("r_B",rB);
+  await this.service.insert_hiss(lose_body);
   await this.service.upscore(fid_lost, rB);
 
   // location.reload();
@@ -93,24 +107,24 @@ export class VoteNoUserComponent {
 rating(rating:any) : any{
 
   if(rating <=1000 ){
-      return 600;
+      return 200;
   }else if(rating>1000  &&  rating<=3000){
-    return 400;
+    return 150;
 
   }else if(rating>3000  &&  rating<=4000){
-    return 300;
+    return 100;
 
   }else if(rating>4000  &&  rating<=6000){
-    return 200;
+    return 80;
 
   }else if(rating>6000  &&  rating<=7000){
-    return 190;
+    return 70;
 
   }else if(rating>7000  &&  rating<=9000){
-    return 180;
+    return 60;
 
   }else{
-    return 150;
+    return 50;
   }
 }
 vote_A(winner: any , lost:any){

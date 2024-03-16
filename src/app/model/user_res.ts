@@ -7,3 +7,8 @@ export interface UserPostResp {
     avatar:    string;
     last_name: string;
 }
+export interface profile {
+    avatar:    string;
+    uid:       number;
+
+}

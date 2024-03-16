@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
 import { ServiceService } from '../service.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -10,10 +10,12 @@ import { UserPostResp } from '../model/user_res';
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs';
 import { tick } from '@angular/core/testing';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-vote',
   standalone: true,
-  imports: [MatToolbarModule,MatButtonModule,MatIconModule,RouterModule,MatCardModule,HttpClientModule],
+  imports: [MatToolbarModule,MatButtonModule,MatIconModule,RouterModule,MatCardModule,HttpClientModule,CommonModule],
   templateUrl: './vote.component.html',
   styleUrl: './vote.component.css'
 })
@@ -31,10 +33,10 @@ export class VoteComponent {
   rB:any;
   E_a:any;
   E_b:any;
-
+  date :Date = new Date();
   person: any[] = [];
 
-   constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute){
+   constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute,private router : Router){
 
     this.vote();
     // this.EloAgloliotrum(1000,1,100,0);
@@ -42,18 +44,17 @@ export class VoteComponent {
     // console.log(this.num);
     if(this.service.id){
       this.id = this.service.id;
-      console.log("service.id",this.service.id);
-      console.log("this.id",this.id);
+      console.log("service.id_vote",this.service.id);
+      console.log("this.id_vote",this.id);
     }
 
     
     
   }
   ngOnInit(): void {
-    this.id = this.ActivatedRoute.snapshot.paramMap.get('uid') || ' ';
+    // this.id = this.ActivatedRoute.snapshot.paramMap.get('uid') || ' ';
     console.log(this.id);
-    this.service.id = this.id;
-
+    // this.service.id = this.id;
     // this.service.getUser((Response: any) => {
     //   console.log(Response);
     // });
@@ -78,17 +79,30 @@ export class VoteComponent {
   const E_a  =  1 / (1 + 10**(-(lost - winner) / 400));
   const E_b  =  1 / (1 + 10**(-(winner - lost) / 400));
   console.log("K=",K);
+
   const rA = winner + (K*(numWin  - E_a));
   const rB = lost + (K*(numlost  - E_b));
+  const formattedDate = `${this.date.getFullYear()}-${this.date.getMonth() + 1}-${this.date.getDate()}`;
   console.log("r_A",rA);
   console.log("fid_win",fid_win);
+  const win_body = {
+    fid:fid_win,
+    date:formattedDate,
+    score:rA
+  }
+  await this.service.insert_hiss(win_body);
   await this.service.upscore(fid_win, rA);
+  const lose_body = {
+    fid:fid_lost,
+    date:formattedDate,
+    score:rB
+  }
   console.log("r_B",rB);
   console.log("fid_lost",fid_lost);
+  await this.service.insert_hiss(lose_body);
+  await this.service.upscore(fid_lost, rB);
   // const  R_b = 1400 + (20 * (0 - 0.427));
   // console.log("R-b",R_b);
-  
-  await this.service.upscore(fid_lost, rB);
 
   // location.reload();
 
@@ -98,25 +112,25 @@ export class VoteComponent {
 }
 rating(rating:any) : any{
 
-  if(rating <=1000 ){
+  if(rating <= 1000 ){
       return 200;
   }else if(rating>1000  &&  rating<=3000){
-    return 400;
+    return 150;
 
   }else if(rating>3000  &&  rating<=4000){
-    return 300;
+    return 100;
 
   }else if(rating>4000  &&  rating<=6000){
-    return 200;
+    return 80;
 
   }else if(rating>6000  &&  rating<=7000){
-    return 190;
+    return 70;
 
   }else if(rating>7000  &&  rating<=9000){
-    return 180;
+    return 60;
 
   }else{
-    return 150;
+    return 50;
   }
 }
 vote_A(winner: any , lost:any){
@@ -137,6 +151,15 @@ vote_B(winner: any , lost:any){
 
 
 
+}
+profile(){
+  this.service.id = this.id;
+  console.log(this.service.id);
+  this.router.navigateByUrl('/profile/');
+}
+ranking(){
+  this.service = this.id;
+  this.router.navigateByUrl('/ranking/');
 }
 
 }

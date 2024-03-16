@@ -9,6 +9,8 @@ import { ServiceService } from '../service.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UserPostResp } from '../model/user_res';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+// import { Router } from 'express';
 @Component({
   selector: 'app-ranking',
   standalone: true,
@@ -22,7 +24,7 @@ export class RankingComponent {
   uid: any;
   person: any[] = [];
 
-  constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute){
+  constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute,private router : Router){
    this.id =  this.service.id;
    console.log("service.id",this.service.id);
    console.log("this.id",this.id);
@@ -38,8 +40,17 @@ export class RankingComponent {
 
   async callAip() {
     this.user = await this.service.getUser();
-
     console.log(this.user);
   }
+  profile(){
+    this.service.id = this.id;
+    this.router.navigateByUrl('/profile/');
+  }
+    
+  vote(){
+    this.service.id = this.id;
+    this.router.navigateByUrl('/vote/');
+  }
+    
 
 }

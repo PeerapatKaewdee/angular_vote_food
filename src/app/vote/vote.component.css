@@ -130,3 +130,12 @@
     height: 330px;
     width: 400px;
 }
+.cardVS img {
+    /* Set initial state (no hover) */
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .cardVS img:hover {
+    /* Add your hover styles here */
+    transform: scale(1.1); /* Example: Zoom in by 10% on hover */
+  }
