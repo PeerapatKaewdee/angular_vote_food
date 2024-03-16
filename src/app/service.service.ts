@@ -69,4 +69,10 @@ export class ServiceService {
    public async put_data_user(body : UserPostResp){
     
    }
+   public async insert_hiss(body : any){
+    const url =  this.constants.API_ENDPOINT + '/foods/vote';
+      const  response = await  lastValueFrom(this.http.post(url,JSON.parse(JSON.stringify(body))));
+      return response as UserPostResp[];
+   }
+
 }
