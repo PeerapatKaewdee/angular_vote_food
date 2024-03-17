@@ -56,8 +56,8 @@ export class RankingComponent {
     this.service.id = this.id;
     this.router.navigateByUrl('/vote/');
   }
-  Get_ranking(){
-    this.ranking = this.service.get_ranking();
+  async Get_ranking(){
+    this.ranking = await this.service.get_ranking();
     console.log(this.ranking);
     const daat = JSON.stringify(this.ranking);
     console.log(this.data);
