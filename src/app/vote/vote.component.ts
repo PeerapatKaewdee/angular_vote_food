@@ -75,13 +75,13 @@ export class VoteComponent {
       
   // }
   async EloAgloliotrum(fid_win: any,winner:any,numWin:any , fid_lost: any,lost:any,numlost:any) :Promise<any>{
-  const  K = this.rating(winner);
-  const E_a  =  1 / (1 + 10**(-(lost - winner) / 400));
-  const E_b  =  1 / (1 + 10**(-(winner - lost) / 400));
+    this.K = this.rating(winner);
+  this.E_a  =  1 / (1 + 10**(-(lost - winner) / 400));
+  this.E_b  =  1 / (1 + 10**(-(winner - lost) / 400));
   console.log("K=",K);
 
-   this.rA = winner + (K*(numWin  - E_a));
-   this.rB = lost + (K*(numlost  - E_b));
+  this.rA = winner + (K*(numWin  - E_a));
+  this.rB = lost + (K*(numlost  - E_b));
   const formattedDate = `${this.date.getFullYear()}-${this.date.getMonth() + 1}-${this.date.getDate()}`;
   console.log("r_A",this.rA);
   console.log("fid_win",fid_win);

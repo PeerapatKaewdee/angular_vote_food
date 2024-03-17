@@ -98,19 +98,19 @@
             </div>
             <span style="font-size: 18px; margin-bottom: 20px;">หาค่า จากคะแนนที่ได้มาข้างต้น คนชนะ=a คนแพ้=b</span>
             <span style="font-size: 18px; color: rgb(37, 157, 26);">ผู้ชนะ</span>
-            <span style="font-size: 18px; color: rgb(37, 157, 26);">Ea = 1 / (1 + 10^(-(img2.score - img1.score) / 400)) = {{E_a}}</span>
+            <span style="font-size: 18px; color: rgb(37, 157, 26);">Ea = 1 / (1 + 10^(-(img2.score - img1.score) / 400)) = {{this.E_a}}</span>
             <span style="font-size: 18px; margin-top: 20px; color: brown;">ผู้แพ้</span>
-            <span style="font-size: 18px; color: brown;">Eb = 1 / (1 + 10^(-(img1.score - img2.score) / 400)) = {{E_b}}</span>
+            <span style="font-size: 18px; color: brown;">Eb = 1 / (1 + 10^(-(img1.score - img2.score) / 400)) = {{this.E_b}}</span>
 
             <span style="font-size: 18px; margin-top: 20px;">หลังคำนวณคะแนนใหม่จะได้คะแนนใหม่ของผู้ชนะ และผู้แพ้ดังนี้</span>
 
             <div style="display: flex; flex-direction: column; align-items: center;">
                 <span style="font-size: 18px; margin-top: 20px; color: rgb(37, 157, 26);">ผู้ชนะ</span>
-                <span style="font-size: 18px; color: rgb(37, 157, 26);">Ra =winner + (K*(numWin  - E_a)) ={{rA}}</span>
+                <span style="font-size: 18px; color: rgb(37, 157, 26);">Ra =winner + (K*(numWin  - E_a)) ={{this.rA}}</span>
             </div>
             <div style="display: flex; flex-direction: column; align-items: center;">
                 <span style="font-size: 18px; margin-top: 20px; color: brown;">ผู้แพ้</span>
-                <span style="font-size: 18px; color: brown; margin-bottom: 20px;">Rb= lost + (K*(numlost  - E_b))= {{rB}}</span>
+                <span style="font-size: 18px; color: brown; margin-bottom: 20px;">Rb= lost + (K*(numlost  - E_b))= {{this.rB}}</span>
             </div>
         </div>
     </div>
