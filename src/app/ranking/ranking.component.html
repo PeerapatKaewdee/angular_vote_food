@@ -38,21 +38,21 @@
   </nav>
 
 
-  <!-- Your existing HTML code -->
-
-<!-- Your existing HTML code -->
+ <!-- Your existing HTML code -->
 
 <div style="position: relative;">
   <mat-card class="cardbody">
     <mat-card-content>
       <div style="display: flex; flex-direction: column;">
         <h3 style="margin-bottom: 8px;">Ranking</h3>
-        <div *ngFor="let item of data" style="display: flex; justify-content: space-between;">
-          <h3>{{ item.today_rank }}</h3>
-          <h3>{{ item.score }}</h3>
-          <!-- Add more h3 tags for other properties if needed -->
-          <!-- <h3>{{ item.food }}</h3>
-          <h3>{{ item.user }}</h3> -->
+        <div *ngFor="let item of data" style="margin-bottom: 8px;">
+          <div style="display: flex; justify-content: space-between;">
+            <h3>{{ item.today_rank }}</h3>
+            <h3>{{ item.score }}</h3>
+            <!-- Add more h3 tags for other properties if needed -->
+            <!-- <h3>{{ item.food }}</h3>
+            <h3>{{ item.user }}</h3> -->
+          </div>
         </div>
       </div>
     </mat-card-content>
@@ -61,9 +61,6 @@
 </div>
 
 <!-- Your remaining HTML code -->
-
-
-  <!-- Your remaining HTML code -->
 
 
 
