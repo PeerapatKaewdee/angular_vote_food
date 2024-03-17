@@ -80,5 +80,15 @@ export class ServiceService {
     const response = await lastValueFrom(this.http.get(url));
     return response as RankingPostResp[];
   }
+  public async get_ranking1(){
+    const url = this.constants.API_ENDPOINT +'/ranking/ranking1';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as RankingPostResp[];
+  }
+  public async get_ranking2(){
+    const url = this.constants.API_ENDPOINT +'/ranking/ranking2';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as RankingPostResp[];
+  }
 
 }
