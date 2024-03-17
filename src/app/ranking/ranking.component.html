@@ -37,7 +37,6 @@
     </div>
   </nav>
 
-
   <div style="position: relative;">
     <mat-card class="cardbody">
       <mat-card-content>
@@ -45,7 +44,7 @@
           <!-- <h3 style="margin-bottom: 8px;">Ranking</h3> -->
           <div style="display: flex; justify-content: space-between;">
             <h3 style="width: 15%;">Rank</h3>
-            <h3 style="width: 25%;">Foods</h3>
+            <h3 style="width: 40%;">Foods</h3>
             <h3 style="width: 5%;">Picture</h3>
             <h3 style="width: 15%;">Score</h3>
             <!-- Add more h3 tags for other properties if needed -->
@@ -54,12 +53,12 @@
           </div>
           <hr> <!-- Optional: Add a horizontal line -->
           <div *ngFor="let item of data" style="display: flex; justify-content: space-between; align-items: center;">
-            <h3 style="width: 15%;">{{ item.rank1}}</h3>
-            <h3 style="width: 25%;">{{ item.name }}</h3>
+            <h3 style="width: 15%;">{{ item.rank1 }}</h3>
+            <h3 style="width: 40%;">{{ item.name }}</h3>
             <div class="circle-card">
               <img src="{{ item.img }}" alt="">
             </div>
-            <h3 style="width: 15%;">{{ item.score }}</h3>
+            <h3 style="width: 15%;">{{ item.score | number:'1.0-0' }}</h3>
             <!-- Add more h3 tags for other properties if needed -->
 
           </div>
