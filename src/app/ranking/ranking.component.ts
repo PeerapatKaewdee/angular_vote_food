@@ -25,6 +25,8 @@ export class RankingComponent {
   data: any[] = [];
   ranking: any;
 
+  
+
   constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute,private router : Router){
    this.id =  this.service.id;
    console.log("service.id",this.service.id);
