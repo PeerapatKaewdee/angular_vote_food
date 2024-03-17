@@ -80,27 +80,27 @@ export class VoteComponent {
   const E_b  =  1 / (1 + 10**(-(winner - lost) / 400));
   console.log("K=",K);
 
-  const rA = winner + (K*(numWin  - E_a));
-  const rB = lost + (K*(numlost  - E_b));
+   this.rA = winner + (K*(numWin  - E_a));
+   this.rB = lost + (K*(numlost  - E_b));
   const formattedDate = `${this.date.getFullYear()}-${this.date.getMonth() + 1}-${this.date.getDate()}`;
-  console.log("r_A",rA);
+  console.log("r_A",this.rA);
   console.log("fid_win",fid_win);
   const win_body = {
     fid:fid_win,
     date:formattedDate,
-    score:rA
+    score:this.rA
   }
   await this.service.insert_hiss(win_body);
-  await this.service.upscore(fid_win, rA);
+  await this.service.upscore(fid_win, this.rA);
   const lose_body = {
     fid:fid_lost,
     date:formattedDate,
-    score:rB
+    score:this.rB
   }
-  console.log("r_B",rB);
+  console.log("r_B",this.rB);
   console.log("fid_lost",fid_lost);
   await this.service.insert_hiss(lose_body);
-  await this.service.upscore(fid_lost, rB);
+  await this.service.upscore(fid_lost, this.rB);
   // const  R_b = 1400 + (20 * (0 - 0.427));
   // console.log("R-b",R_b);
 
