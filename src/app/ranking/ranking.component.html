@@ -11,7 +11,7 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body style="background-color: yellow;">
+<body style="background-color: yellow; height: 100%;">
 
   <nav class="navbar" style="background-color: #ffffff;">
     <div class="container-fluid" style="margin-inline: 100px; ">
@@ -38,39 +38,38 @@
   </nav>
 
 
-  <!-- Your existing HTML code -->
-
   <div style="position: relative;">
     <mat-card class="cardbody">
       <mat-card-content>
-        <div style="display: flex; justify-content: start; ">
-          <h3 style="padding-left: 16px;">Ranking</h3>
-          <h3 style="padding-left: 16%;">Like</h3>
-          <h3 style="padding-left: 16%;">Food</h3>
-          <h3 style="padding-left: 20%;">User</h3>
-          <div style="display: flexbox;" *ngFor="let item of this.data">
-            <h3 style="padding-left: 16px;">{{item.today_rank}}</h3>
-            <h3 style="padding-left: 16%;">{{item.score}}</h3>
-            <!-- <h3 style="padding-left: 16%;">{{}}</h3>
-                      <h3 style="padding-left: 20%;">User</h3> -->
+        <div style="display: flex; flex-direction: column;">
+          <!-- <h3 style="margin-bottom: 8px;">Ranking</h3> -->
+          <div style="display: flex; justify-content: space-between;">
+            <h3 style="width: 15%;">Rank</h3>
+            <h3 style="width: 25%;">Foods</h3>
+            <h3 style="width: 5%;">Picture</h3>
+            <h3 style="width: 15%;">Score</h3>
+            <!-- Add more h3 tags for other properties if needed -->
+            <!-- <h3 style="width: 15%;">Food</h3>
+            <h3 style="width: 15%;">User</h3> -->
+          </div>
+          <hr> <!-- Optional: Add a horizontal line -->
+          <div *ngFor="let item of data" style="display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="width: 15%;">{{ item.today_rank }}</h3>
+            <h3 style="width: 25%;">{{ item.name }}</h3>
+            <div class="circle-card">
+              <img src="{{ item.img }}" alt="">
+            </div>
+            <h3 style="width: 15%;">{{ item.score }}</h3>
+            <!-- Add more h3 tags for other properties if needed -->
+            
           </div>
         </div>
-
       </mat-card-content>
-      <!-- <button style="border-radius: 10px; margin-bottom: 10px" mat-raised-button color="primary"
-                routerLink="/viewfood">
-                confirm
-            </button> -->
-
-
+      <!-- Add your buttons or other content here if needed -->
     </mat-card>
-
-
   </div>
-
-  <!-- Your remaining HTML code -->
-
-
+  
+  
 
 
 </body>
