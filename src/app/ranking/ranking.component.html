@@ -45,8 +45,9 @@
     <mat-card-content>
       <div style="display: flex; flex-direction: column;">
         <h3 style="margin-bottom: 8px;">Ranking</h3>
+        <h3 style="margin-bottom: 8px;">Score</h3>
         <div *ngFor="let item of data" style="margin-bottom: 8px;">
-          <div style="display: flex; justify-content: space-evenly;">
+          <div style="display: flex; justify-content: space-between;">
             <h3>{{ item.today_rank }}</h3>
             <h3>{{ item.score }}</h3>
             <!-- Add more h3 tags for other properties if needed -->
