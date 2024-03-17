@@ -76,7 +76,22 @@ export class ServiceService {
       return response as UserPostResp[];
    }
    public async get_ranking(){
-    const url = this.constants.API_ENDPOINT +'/ranking';
+    const url = this.constants.API_ENDPOINT +'/ranking/hiss';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as RankingPostResp[];
+  }
+  public async get_ranking1(){
+    const url = this.constants.API_ENDPOINT +'/ranking/ranking1';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as RankingPostResp[];
+  }
+  public async get_ranking2(){
+    const url = this.constants.API_ENDPOINT +'/ranking/ranking2';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as RankingPostResp[];
+  }
+  public async get_rankingUp_Dows(){
+    const url = this.constants.API_ENDPOINT +'/ranking/hiss';
     const response = await lastValueFrom(this.http.get(url));
     return response as RankingPostResp[];
   }

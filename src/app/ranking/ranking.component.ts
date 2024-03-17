@@ -24,6 +24,8 @@ export class RankingComponent {
   uid: any;
   data: any[] = [];
   ranking: any;
+  rank:any;
+  today:any;
 
   constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute,private router : Router){
    this.id =  this.service.id;
@@ -36,16 +38,12 @@ export class RankingComponent {
     // this.id = this.ActivatedRoute.snapshot.paramMap.get(this.uid);
     // console.log(this.id);
     this.Get_ranking();
+    this.Get_rank();
     console.log(this.data);
     
     this.service.getUser((Response: any) => {
       console.log(Response);
     });
-  }
-
-  async callAip() {
-    this.user = await this.service.getUser();
-    console.log(this.user);
   }
   profile(){
     this.service.id = this.id;
@@ -60,11 +58,16 @@ export class RankingComponent {
     this.ranking = await this.service.get_ranking();
     console.log(this.ranking);
     const daat = JSON.stringify(this.ranking);
-    console.log(this.data);
+    console.log("data",this.data);
     
     for(let data of this.ranking){
       this.data.push(data);
     }
+  }
+  async Get_rank(){
+    this.today = await this.service.get_rankingUp_Dows();
+    console.log("today",this.today);
+    
   }
     
 
