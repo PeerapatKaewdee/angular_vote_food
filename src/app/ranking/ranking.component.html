@@ -49,8 +49,7 @@
           <h3 style="padding-left: 16%;">Food</h3>
           <h3 style="padding-left: 20%;">User</h3>
           <div style="display: flexbox;" *ngFor="let item of this.data">
-            <h3 style="padding-left: 16px;">{{item.today_rank}}</h3>
-            <h3 style="padding-left: 16%;">{{item.score}}</h3>
+            
             <!-- <h3 style="padding-left: 16%;">{{}}</h3>
                       <h3 style="padding-left: 20%;">User</h3> -->
 
@@ -65,10 +64,8 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td></td>
+                            <h3 style="padding-left: 16px;">{{item.today_rank}}</h3>
+                            <h3 style="padding-left: 16%;">{{item.score}}</h3>
                           </tr>
                         </tbody>
                       </table>
