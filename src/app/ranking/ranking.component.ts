@@ -22,7 +22,8 @@ export class RankingComponent {
   user: UserPostResp[] = [];
   id: any = '';
   uid: any;
-  person: any[] = [];
+  data: any[] = [];
+  ranking: any;
 
   constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute,private router : Router){
    this.id =  this.service.id;
@@ -31,8 +32,12 @@ export class RankingComponent {
    
   }
   ngOnInit(): void {
+
     // this.id = this.ActivatedRoute.snapshot.paramMap.get(this.uid);
     // console.log(this.id);
+    this.Get_ranking();
+    console.log(this.data);
+    
     this.service.getUser((Response: any) => {
       console.log(Response);
     });
@@ -50,6 +55,16 @@ export class RankingComponent {
   vote(){
     this.service.id = this.id;
     this.router.navigateByUrl('/vote/');
+  }
+  Get_ranking(){
+    this.ranking = this.service.get_ranking();
+    console.log(this.ranking);
+    const daat = JSON.stringify(this.ranking);
+    console.log(this.data);
+    
+    for(let data of this.ranking){
+      this.data.push(data);
+    }
   }
     
 
