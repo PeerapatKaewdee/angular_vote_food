@@ -12,3 +12,12 @@ export interface profile {
     uid:       number;
 
 }
+export interface RankingPostResp {
+    fid:            number;
+    name:           string;
+    img:            string;
+    score:          number;
+    date:           string;
+    today_rank:     number;
+    yesterday_rank: number;
+}

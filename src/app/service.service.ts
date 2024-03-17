@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Constants } from './config/component';
 import { Injectable } from '@angular/core';
 import { UserPostResp } from '../app/model/user_res';
+import { RankingPostResp } from '../app/model/user_res';
 import { profile } from '../app/model/user_res';
 import { lastValueFrom } from 'rxjs';
 import { response } from 'express';
@@ -74,5 +75,10 @@ export class ServiceService {
       const  response = await  lastValueFrom(this.http.post(url,JSON.parse(JSON.stringify(body))));
       return response as UserPostResp[];
    }
+   public async get_ranking(){
+    const url = this.constants.API_ENDPOINT +'/ranking';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as RankingPostResp[];
+  }
 
 }
