@@ -37,7 +37,6 @@
     </div>
   </nav>
 
-
   <div style="position: relative;">
     <mat-card class="cardbody">
       <mat-card-content>
@@ -59,7 +58,7 @@
             <div class="circle-card">
               <img src="{{ item.img }}" alt="">
             </div>
-            <h3 style="width: 15%;">{{ item.score }}</h3>
+            <h3 style="width: 15%;">{{ item.score | number:'1.0-0' }}</h3>
             <!-- Add more h3 tags for other properties if needed -->
             
           </div>
