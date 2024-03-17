@@ -53,12 +53,13 @@
           </div>
           <hr> <!-- Optional: Add a horizontal line -->
           <div *ngFor="let item of data" style="display: flex; justify-content: space-between; align-items: center;">
-            <h3 style="width: 15%;">{{ item.rank1 }}</h3>
+            <h3 style="width: 15%;">{{ item.rank_1 }}</h3>
+            <h3>{{(item.rank_2 )- (item.rank_1)}}</h3>
             <h3 style="width: 40%;">{{ item.name }}</h3>
             <div class="circle-card">
-              <img src="{{ item.img }}" alt="">
+              <img src="{{ item.img_1}}" alt="">
             </div>
-            <h3 style="width: 15%;">{{ item.score | number:'1.0-0' }}</h3>
+            <h3 style="width: 15%;">{{ item.score_1 | number:'1.0-0' }}</h3>
             <!-- Add more h3 tags for other properties if needed -->
             
           </div>
