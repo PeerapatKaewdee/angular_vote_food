@@ -76,7 +76,7 @@ export class ServiceService {
       return response as UserPostResp[];
    }
    public async get_ranking(){
-    const url = this.constants.API_ENDPOINT +'/ranking';
+    const url = this.constants.API_ENDPOINT +'/ranking/hiss';
     const response = await lastValueFrom(this.http.get(url));
     return response as RankingPostResp[];
   }
