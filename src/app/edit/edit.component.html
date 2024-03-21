@@ -11,20 +11,24 @@
         <div class="example-form" *ngFor="let user of data">
           <div class="inputfield">
             <!-- <label style="color: rgb(0, 0, 0)">Password</label> -->
-            <input type="text" placeholder="{{user.name}}" [(ngModel)]="name">
+            <!-- <mat-form-field class="example-form-field">/ -->
+              <!-- <mat-label>Clearable input</mat-label> -->
+              <input type="text" [(ngModel)]="this.name">
+            <!-- </mat-form-field> -->
+            
           </div>
           <div class="inputfield">
             <!-- <label style="color: rgb(0, 0, 0)">Password</label> -->
-            <input type="text" value="{{user.last_name}}" [(ngModel)]="lastname">
+            <input type="text" value="{{user.last_name}}" [(ngModel)]="this.lastname">
           </div>
           <div class="inputfield">
             <!-- <label style="color: rgb(0, 0, 0)">Email</label> -->
-            <input type="email" value="{{user.email}}" [(ngModel)]="email">
+            <input type="email" value="{{user.email}}" [(ngModel)]="this.email">
           </div>
 
           <div class="inputfield">
             <!-- <label style="color: rgb(0, 0, 0)">Password</label> -->
-            <input type="password" value="{{user.pass}}" [(ngModel)]="pass">
+            <input type="password" value="{{user.pass}}" [(ngModel)]="this.pass">
           </div>
 
           <div class="inputfield">

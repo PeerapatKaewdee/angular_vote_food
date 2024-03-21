@@ -9,17 +9,18 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ServiceService } from '../service.service';
 import { UserPostResp } from '../model/user_res';
 import { ActivatedRoute } from '@angular/router';
+import {MatFormFieldModule} from '@angular/material/form-field';
 // import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [MatToolbarModule,MatButtonModule,MatIconModule,RouterModule,MatCardModule ,HttpClientModule,CommonModule],
+  imports: [MatFormFieldModule,MatToolbarModule,MatButtonModule,MatIconModule,RouterModule,MatCardModule ,HttpClientModule,CommonModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
 
-
+  check:any = 0;
   user: UserPostResp[] = [];
   id: any = '';
   uid: any;
@@ -42,6 +43,12 @@ export class ProfileComponent {
     this.service.id = this.id;
     console.log("service.id",this.service.id);
     this.img = await this.service.get_foods_img(this.id);
+    for(let gg of this.img){
+      this.check ++;
+      // console.log("gg ",gg);
+    }
+    console.log("check ",this.check);
+    
     // this.name = await this.service.getUserByID(this.id);
     console.log("name",this.name);
     
