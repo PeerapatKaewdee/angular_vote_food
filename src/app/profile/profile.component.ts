@@ -88,7 +88,7 @@ export class ProfileComponent {
       console.log("formData : 123", formData);
 
       // รอให้การเรียก post_upProfile() เสร็จสิ้นและรับข้อมูลที่ส่งกลับมา
-      const response = await this.service.post_upProfile(formData);
+      const response = await this.service.post_upfoods_img(formData);
       console.log("Response from server:", response);
 
       console.log("selectedFile2", this.selectedFile);

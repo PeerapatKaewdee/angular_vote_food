@@ -61,11 +61,22 @@ export class EditComponent implements OnInit {
     this.service.id = this.id;
     this.router.navigateByUrl('/profile/');
   }
-  confrim() {
+  async confrim() {
     console.log('name', this.name);
     console.log('lastName', this.lastname);
     console.log('email', this.email);
     console.log('pass', this.pass);
+    
+    console.log("file",this.selectedFile);
+    const body = {
+      name:this.name,
+      email:this.email,
+      pass:this.pass,
+      avatar:this.selectedFile,
+      last_name:this.lastname
+    };
+    await this.service.put_data_user(body,this.id);
+    
     // console.log("file",file);
   }
   onFileSelected(event: any): void {
@@ -80,6 +91,7 @@ export class EditComponent implements OnInit {
       this.lastname = data.last_name;
       this.email = data.email;
       this.pass = data.pass;
+      this.selectedFile = data.avatar;
     }
 
     console.log(this.data);
