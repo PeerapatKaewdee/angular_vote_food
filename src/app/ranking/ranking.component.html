@@ -53,22 +53,23 @@
           </div>
           <hr> <!-- Optional: Add a horizontal line -->
           <div *ngFor="let item of data" style="display: flex; justify-content: space-between; align-items: center;">
-            <h3 style="width: 15%;">{{ item.rank_1 }}</h3>
-            <h3 style="width: 40%;">{{ item.name_1 }}</h3>
+            <h3 style="width: 15%;">{{ item.rank }}</h3>
+            <h3 style="width: 15%;">{{ ((item.vote_rank) - (item.food_rank))}}</h3>
+            <h3 style="width: 40%;">{{ item.name }}</h3>
             <div class="circle-card">
-              <img src="{{ item.img_1}}" alt="">
+              <img src="{{ item.img}}" alt="">
             </div>
             <h3 style="width: 15%;">{{ item.score_1 | number:'1.0-0' }}</h3>
             <!-- Add more h3 tags for other properties if needed -->
-            
+
           </div>
         </div>
       </mat-card-content>
       <!-- Add your buttons or other content here if needed -->
     </mat-card>
   </div>
-  
-  
+
+
 
 
 </body>
