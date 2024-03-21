@@ -84,14 +84,14 @@ export class VoteNoUserComponent {
   console.log("r_A",rA);
   const win_body = {
     fid:fid_win,
-    date:this.date,
+    date:"2024-03-20",
     score:rA
   }
   await this.service.insert_hiss(win_body);
   await this.service.upscore(fid_win, rA);
   const lose_body = {
     fid:fid_lost,
-    date:this.date,
+    date:"2024-03-20",
     score:rB
   }
   console.log("r_B",rB);

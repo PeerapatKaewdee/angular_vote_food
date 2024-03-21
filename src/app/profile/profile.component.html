@@ -56,15 +56,30 @@
             style="background-color: orange;">ข้อมูลส่วนตัว
             <img src="../../assets/images/teenyicons_user-square-outline (1).png" alt="" style="height: 15px;">
         </button>
-        <div>
-            <input type="file" (change)="onFileSelected($event)" accept="image/*">
-            <!-- <button (click)="uploadImage()">upload</button> -->
-        </div>
 
-        <button mat-button type="button" class="custom-button"
-            style="background-color: rgb(118, 192, 7); color: black;">เพิ่มรูปภาพ
-            <img src="../../assets/images/mynaui_image.png" alt="" style="height: 15px;">
-        </button>
+        <!-- <div *ngIf="check === 5; else ggg"> -->
+            <button type="button" class="custom-button" style="background-color: rgb(118, 192, 7); color: black;"
+                onclick="document.getElementById('fileInput').click();">
+                เพิ่มรูปภาพ
+                <img src="../../assets/images/mynaui_image.png" alt="" style="height: 15px;">
+            </button>
+
+            <input *ngIf="check === 5; else ggg" type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;" disabled>
+        <!-- </div> -->
+        <!-- img == 5  -->
+        <ng-template #ggg>
+
+            <button type="button" class="custom-button" style="background-color: rgb(118, 192, 7); color: black;"
+                onclick="document.getElementById('fileInput').click();">
+                เพิ่มรูปภาพ
+                <img src="../../assets/images/mynaui_image.png" alt="" style="height: 15px;">
+            </button>
+
+            <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;">
+
+        </ng-template>
+
+
         <button mat-button type="button" class="custom-button" [routerLink]="'/graph'"
             style="background-color: rgb(255, 255, 255); color: black;">สถิติ 7 วัน
             <img src="../../assets/images/mynaui_image (1).png" alt="" style="height: 15px;">
