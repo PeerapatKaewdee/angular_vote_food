@@ -62,13 +62,16 @@ export class ServiceService {
     return response  as UserPostResp[];
 
    }
-   public async post_upProfile(body : FormData){
+   public async post_upfoods_img(body : FormData){
     const url = this.constants.API_ENDPOINT + '/uplaods/';
     const response = await lastValueFrom(this.http.post(url,body));
     return response as profile[];
    }
-   public async put_data_user(body : UserPostResp){
-    
+   public async put_data_user(body : any,id:any){
+    const url = this.constants.API_ENDPOINT+'/update/' + id ;
+    const response = await lastValueFrom(this.http.put(url,JSON.parse(JSON.stringify(body))));
+    return response  as UserPostResp[];
+
    }
    public async insert_hiss(body : any){
     const url =  this.constants.API_ENDPOINT + '/foods/vote';
