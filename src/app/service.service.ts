@@ -63,6 +63,11 @@ export class ServiceService {
 
    }
    public async post_upfoods_img(body : FormData){
+    const url = this.constants.API_ENDPOINT + '/uplaods/profile';
+    const response = await lastValueFrom(this.http.post(url,body));
+    return response as profile[];
+   }
+   public async post_upprofile_img_Byid(body : FormData){
     const url = this.constants.API_ENDPOINT + '/uplaods/';
     const response = await lastValueFrom(this.http.post(url,body));
     return response as profile[];

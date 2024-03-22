@@ -72,16 +72,20 @@ export class EditComponent implements OnInit {
       name:this.name,
       email:this.email,
       pass:this.pass,
-      avatar:this.selectedFile,
       last_name:this.lastname
     };
     await this.service.put_data_user(body,this.id);
     
     // console.log("file",file);
   }
-  onFileSelected(event: any): void {
+  async onFileSelected(event: any): Promise<void> {
     this.selectedFile = event.target.files[0];
+    const formData = new FormData();
+    formData.append('file', this.selectedFile);
+    formData.append('uid', this.id);
+
     console.log('selectedFile1', this.selectedFile);
+    await this.service.post_upprofile_img_Byid(formData);
     // Optionally, you can call uploadImage() here if you want to upload the file immediately after selection
   }
   async user() {
