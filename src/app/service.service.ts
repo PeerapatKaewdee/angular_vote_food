@@ -73,7 +73,7 @@ export class ServiceService {
     return response as profile[];
    }
    public async put_data_user(body : any,id:any){
-    const url = this.constants.API_ENDPOINT+'/update/' + id ;
+    const url = this.constants.API_ENDPOINT+'/uplaods/' + id ;
     const response = await lastValueFrom(this.http.put(url,JSON.parse(JSON.stringify(body))));
     return response  as UserPostResp[];
 
