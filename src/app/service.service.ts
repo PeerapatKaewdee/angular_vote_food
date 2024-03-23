@@ -69,7 +69,7 @@ export class ServiceService {
    }
    public async post_upProfile_img_ById(body : FormData){
     const url = this.constants.API_ENDPOINT + '/uplaods/profile';
-    const response = await lastValueFrom(this.http.post(url,body));
+    const response = await lastValueFrom(this.http.put(url,body));
     return response as profile[];
    }
    public async put_data_user(body : any,id:any){

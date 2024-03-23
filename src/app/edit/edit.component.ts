@@ -33,7 +33,7 @@ export class EditComponent implements OnInit {
   lastname!: any;
   email!: any;
   pass!: any;
-  selectedFile: any;
+  selectedFile: File | null = null;
   id: any;
   data: any = '';
 
@@ -53,39 +53,44 @@ export class EditComponent implements OnInit {
     // this.service.id = this.id;
     this.user();
   }
-  goBack() {
-    // Implementing window.back to go back to the previous location
-    window.history.back();
-  }
-  profile() {
-    this.service.id = this.id;
-    this.router.navigateByUrl('/profile/');
-  }
+
   async confrim() {
     console.log('name', this.name);
     console.log('lastName', this.lastname);
     console.log('email', this.email);
     console.log('pass', this.pass);
-    
-    console.log("file",this.selectedFile);
+
+    console.log('file', this.selectedFile);
     const body = {
-      name:this.name,
-      email:this.email,
-      pass:this.pass,
-      last_name:this.lastname
+      name: this.name,
+      email: this.email,
+      pass: this.pass,
+      last_name: this.lastname,
     };
-    await this.service.put_data_user(body,this.id);
-    
+    await this.service.put_data_user(body, this.id);
+    this.uploadImage();
+    this.profile();
     // console.log("file",file);
   }
-  async onFileSelected(event: any): Promise<void> {
+  async onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
     console.log('selectedFile1', this.selectedFile);
-    const formData = new FormData();
-    formData.append('file', this.selectedFile);
-    formData.append('uid', this.id);
-    await this.service.post_upProfile_img_ById(formData);
     // Optionally, you can call uploadImage() here if you want to upload the file immediately after selection
+  }
+  async uploadImage() {
+    if (this.selectedFile) {
+      const formData = new FormData();
+      formData.append('file', this.selectedFile);
+      formData.append('uid', this.id);
+      console.log('formData : 123', formData);
+      // รอให้การเรียก post_upProfile() เสร็จสิ้นและรับข้อมูลที่ส่งกลับมา
+      const response = await await this.service.post_upProfile_img_ById(
+        formData
+      );
+      console.log('Response from server:', response);
+      console.log('selectedFile2', this.selectedFile);
+      // ทำงานอื่นๆที่ต้องการทำหลังจากการอัปโหลดไฟล์
+    }
   }
   async user() {
     this.data = await this.service.getUserByID(this.id);
@@ -100,5 +105,9 @@ export class EditComponent implements OnInit {
     console.log(this.data);
     console.log(this.data.name);
     console.log(this.name);
+  }
+  profile() {
+    this.service.id = this.id;
+    this.router.navigateByUrl('/profile/');
   }
 }
