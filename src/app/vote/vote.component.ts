@@ -26,13 +26,13 @@ export class VoteComponent {
   img: any;
   img1: any;
   img2: any;
-  num:any;
-  foods_score: any;
-  K:any;
-  rA:any;
-  rB:any;
-  E_a:any;
-  E_b:any;
+  num:any = 0;
+  foods_score: any = 0;
+  K:any = 0;
+  rA:any = 0;
+  rB:any = 0;
+  E_a:any = 0;
+  E_b:any = 0;
   date :Date = new Date();
   person: any[] = [];
 

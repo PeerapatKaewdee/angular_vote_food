@@ -73,12 +73,16 @@ export class EditComponent implements OnInit {
     // console.log("file",file);
   }
   async onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
-    console.log('selectedFile1', this.selectedFile);
+    if(event){
+      this.selectedFile = event.target.files[0];
+      console.log('selectedFile1', this.selectedFile);
+    }else{
+      console.log('selectedFile 123', this.selectedFile);
+    }
     // Optionally, you can call uploadImage() here if you want to upload the file immediately after selection
   }
   async uploadImage() {
-    if (this.selectedFile) {
+    if (this.selectedFile != undefined || this.selectedFile != null) {
       const formData = new FormData();
       formData.append('file', this.selectedFile);
       formData.append('uid', this.id);
@@ -90,6 +94,9 @@ export class EditComponent implements OnInit {
       console.log('Response from server:', response);
       console.log('selectedFile2', this.selectedFile);
       // ทำงานอื่นๆที่ต้องการทำหลังจากการอัปโหลดไฟล์
+    }else{
+      this.selectedFile = null;
+      this.service.id = this.id;
     }
   }
   async user() {
@@ -99,14 +106,13 @@ export class EditComponent implements OnInit {
       this.lastname = data.last_name;
       this.email = data.email;
       this.pass = data.pass;
-      this.selectedFile = data.avatar;
     }
 
     console.log(this.data);
     console.log(this.data.name);
     console.log(this.name);
   }
-  profile() {
+  profile(){
     this.service.id = this.id;
     this.router.navigateByUrl('/profile/');
   }
