@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
   <title>Document</title>
 </head>
 
@@ -17,12 +19,22 @@
       <div style="display: flex; justify-content: center;">
         <div>
           <div style="display: flex; justify-content: center;">
-            <h1>สถิติ</h1>
+            <div>
+              <h1>สถิติ</h1>
+            </div>
+            <div style="display: flex; justify-content: flex-end; position: absolute; right: 10%;">
+              <button type="button" (click)="profile()"
+                style="width: 20%; height: 20%;background-color: transparent; border-color: transparent ;">
+                <img src="../../assets/images/Vector (2).png" alt="" width="32px" height="30px">
+                <h6 style="margin-top: -5px;">Back</h6>
+              </button>
+            </div>
           </div>
           <!-- <canvas id="lineChart" width="400" height="400"></canvas> -->
 
           <div class="card">
-            <p-chart type="line" [data]="data" ></p-chart>
+            <p-chart type="line" [data]="img"></p-chart>
+            <div></div>
           </div>
         </div>
       </div>
