@@ -83,7 +83,7 @@ if(email.value && password.value){
       
         if (user.type === 1) {
 
-          this.router.navigateByUrl('/addmin/'+user.uid);
+          this.router.navigateByUrl('/addmin');
         //   console.log('user.email', user.email);
         // console.log('user.pass', user.pass);
         } else if(user.type === 0){
@@ -101,7 +101,7 @@ if(email.value && password.value){
          localStorage.setItem("uid",this.uid);
          this.service.id = localStorage.getItem("uid");
           console.log(localStorage.getItem("uid"));
-          this.router.navigateByUrl('/profile/');
+          this.router.navigateByUrl('/profile');
           
           // console.log(parseInt(this.id)+1);
           
@@ -119,4 +119,5 @@ if(email.value && password.value){
   
   }
 }
+
 }

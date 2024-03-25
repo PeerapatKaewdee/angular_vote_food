@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { UserPostResp } from '../app/model/user_res';
 import { RankingPostResp } from '../app/model/user_res';
 import { profile } from '../app/model/user_res';
+import { foodsImg } from '../app/model/user_res';
 import { lastValueFrom } from 'rxjs';
 import { response } from 'express';
 
@@ -65,7 +66,12 @@ export class ServiceService {
    public async post_upfoods_img(body : FormData){
     const url = this.constants.API_ENDPOINT + '/uplaods/';
     const response = await lastValueFrom(this.http.post(url,body));
-    return response as profile[];
+    return response as foodsImg[];
+   }
+   public async put_foods_img(body : FormData){
+    const url = this.constants.API_ENDPOINT + '/uplaods/foodsimg';
+    const response = await lastValueFrom(this.http.put(url,body));
+    return response as foodsImg[];
    }
    public async post_upProfile_img_ById(body : FormData){
     const url = this.constants.API_ENDPOINT + '/uplaods/profile';
@@ -121,6 +127,11 @@ export class ServiceService {
    public async get_rank_day7(){
     const url = this.constants.API_ENDPOINT +'/ranking/day7';
     const response = await lastValueFrom(this.http.get(url));
+    return response as UserPostResp[];
+   }
+   public async delete_foodsImg(id:any){
+    const url = this.constants.API_ENDPOINT +'/foods/delete/' + id;
+    const response = await lastValueFrom(this.http.delete(url));
     return response as UserPostResp[];
    }
 

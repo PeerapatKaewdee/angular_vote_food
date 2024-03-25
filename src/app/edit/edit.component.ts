@@ -42,15 +42,16 @@ export class EditComponent implements OnInit {
     private service: ServiceService,
     private router: Router
   ) {
-    this.id = this.service.id;
-    console.log(this.id);
     // this.user();
 
     // this.get_img();
   }
   ngOnInit(): void {
-    console.log('oninit id', this.id);
+    this.id = localStorage.getItem('uid');
+    console.log('id local = ', this.id);
+    console.log('uid', this.id);
     // this.service.id = this.id;
+    // this.getUser();
     this.user();
   }
 
@@ -73,10 +74,10 @@ export class EditComponent implements OnInit {
     // console.log("file",file);
   }
   async onFileSelected(event: any) {
-    if(event){
+    if (event) {
       this.selectedFile = event.target.files[0];
       console.log('selectedFile1', this.selectedFile);
-    }else{
+    } else {
       console.log('selectedFile 123', this.selectedFile);
     }
     // Optionally, you can call uploadImage() here if you want to upload the file immediately after selection
@@ -94,9 +95,8 @@ export class EditComponent implements OnInit {
       console.log('Response from server:', response);
       console.log('selectedFile2', this.selectedFile);
       // ทำงานอื่นๆที่ต้องการทำหลังจากการอัปโหลดไฟล์
-    }else{
+    } else {
       this.selectedFile = null;
-      this.service.id = this.id;
     }
   }
   async user() {
@@ -112,8 +112,8 @@ export class EditComponent implements OnInit {
     console.log(this.data.name);
     console.log(this.name);
   }
-  profile(){
+  profile() {
     this.service.id = this.id;
-    this.router.navigateByUrl('/profile/');
+    this.router.navigateByUrl('/profile');
   }
 }

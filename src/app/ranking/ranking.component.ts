@@ -28,18 +28,21 @@ export class RankingComponent {
   
 
   constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute:ActivatedRoute,private router : Router){
-   this.id =  this.service.id;
-   console.log("service.id",this.service.id);
-   console.log("this.id",this.id);
+  //  this.id =  this.service.id;
+  //  console.log("service.id",this.service.id);
+  //  console.log("this.id",this.id);
    
   }
   ngOnInit(): void {
 
     // this.id = this.ActivatedRoute.snapshot.paramMap.get(this.uid);
     // console.log(this.id);
+    this.id = localStorage.getItem("uid");
+    console.log("id local = ",this.id);
+    console.log("uid",this.id);
     this.Get_ranking();
     console.log(this.data);
-    
+    // this.service.id = this.id;
     this.service.getUser((Response: any) => {
       console.log(Response);
     });
@@ -51,12 +54,12 @@ export class RankingComponent {
   }
   profile(){
     this.service.id = this.id;
-    this.router.navigateByUrl('/profile/');
+    this.router.navigateByUrl('/profile');
   }
     
   vote(){
     this.service.id = this.id;
-    this.router.navigateByUrl('/vote/');
+    this.router.navigateByUrl('/vote');
   }
   async Get_ranking(){
     this.ranking = await this.service.get_ranking();
@@ -67,6 +70,10 @@ export class RankingComponent {
     for(let data of this.ranking){
       this.data.push(data);
     }
+  }
+  logOut(){
+    localStorage.removeItem('uid');
+    this.router.navigateByUrl('');
   }
     
 

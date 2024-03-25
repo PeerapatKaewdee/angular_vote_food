@@ -36,7 +36,10 @@ export class GraphComponent implements OnInit {
    }
 
   async ngOnInit(){
-
+    this.id = localStorage.getItem("uid");
+    console.log("id local = ",this.id);
+    console.log("uid",this.id);
+    // this.service.id = this.id;
    this.day1 = await this.service.get_rank_day1();
    this.day2 = await this.service.get_rank_day2();
    this.day3 = await this.service.get_rank_day3();
@@ -58,7 +61,7 @@ export class GraphComponent implements OnInit {
   }
   profile(){
     this.service.id = this.id;
-    this.router.navigateByUrl('/profile/');
+    this.router.navigateByUrl('/profile');
   }
   }
 

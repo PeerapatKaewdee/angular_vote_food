@@ -32,9 +32,6 @@ name: any='';
     // console.log("country",this.country);
     // this.profileid();
   }
-
-
-  
   async sigup(){
   const body = {
     name: this.name,
@@ -42,11 +39,11 @@ name: any='';
     email: this.email,
     pass: this.pass
   }
-  console.log("body",body as UserPostResp );
+  console.log("body",body);
   console.log(this.id);
   const test = await this.service.signUp(body);
   console.log("test",test);
-  this. profileid();
+  this.profileid();
 
   
   
@@ -54,8 +51,10 @@ name: any='';
 }
   async profileid(){
    this.id = await this.service.get_new_user();
-   this.service.id = this.id;
-   this.router.navigateByUrl('/profile/'+this.id);
+   console.log("uid",this.id[0].uid);
+   
+   localStorage.setItem('uid',this.id[0].uid);
+   this.router.navigateByUrl('/profile');
 
 }
 }

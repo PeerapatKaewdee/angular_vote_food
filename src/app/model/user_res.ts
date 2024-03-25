@@ -12,6 +12,11 @@ export interface profile {
     uid:       number;
 
 }
+export interface foodsImg {
+    img:    string;
+    fid:       number;
+
+}
 export interface RankingPostResp {
     fid:            number;
     name:           string;

@@ -42,17 +42,19 @@ export class VoteComponent {
     // this.EloAgloliotrum(1000,1,100,0);
     // this.num = 20**0.5;
     // console.log(this.num);
-    if(this.service.id){
-      this.id = this.service.id;
-      console.log("service.id_vote",this.service.id);
-      console.log("this.id_vote",this.id);
-    }
-
+    // if(this.service.id){
+    //   this.id = this.service.id;
+    //   console.log("service.id_vote",this.service.id);
+    //   console.log("this.id_vote",this.id);
+    // }
     
     
   }
   ngOnInit(): void {
-    // this.id = this.ActivatedRoute.snapshot.paramMap.get('uid') || ' ';
+    this.id = localStorage.getItem("uid");
+    console.log("id local = ",this.id);
+    console.log("uid",this.id);
+    // this.service.id = this.id;
     console.log(this.id);
     // this.service.id = this.id;
     // this.service.getUser((Response: any) => {
@@ -155,11 +157,15 @@ vote_B(winner: any , lost:any){
 profile(){
   this.service.id = this.id;
   console.log(this.service.id);
-  this.router.navigateByUrl('/profile/');
+  this.router.navigateByUrl('/profile');
 }
 ranking(){
   this.service = this.id;
-  this.router.navigateByUrl('/ranking/');
+  this.router.navigateByUrl('/ranking');
+}
+logOut(){
+  localStorage.removeItem('uid');
+  this.router.navigateByUrl('');
 }
 
 }

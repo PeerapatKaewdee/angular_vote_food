@@ -15,12 +15,12 @@ export const routes: Routes = [
     {path : '' , component :VoteNoUserComponent },
     { path: 'login', component: LoginComponent },
     {path : 'signup', component: SignUpComponent},
-    {path : 'profile/:uid',component : ProfileComponent},
-    {path : 'ranking/:uid',component : RankingComponent},
-    {path : 'vote/:uid' ,component :VoteComponent } ,
+    {path : 'profile',component : ProfileComponent},
+    {path : 'ranking',component : RankingComponent},
+    {path : 'vote' ,component :VoteComponent } ,
     {path : 'edit' , component : EditComponent}, 
     {path : 'viewfood',component : ViewFoodComponent},
     {path : 'viewprofile',component : ViewProfileComponent},
-    {path : 'addmin/:id',component : AddminComponent},
+    {path : 'addmin',component : AddminComponent},
     {path : 'graph',component : GraphComponent}
 ];
