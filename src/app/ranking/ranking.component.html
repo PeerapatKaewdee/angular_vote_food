@@ -54,7 +54,12 @@
           <hr> <!-- Optional: Add a horizontal line -->
           <div *ngFor="let item of data" style="display: flex; justify-content: space-between; align-items: center;">
             <h3 style="width: 15%;">{{ item.rank }}</h3>
-            <h3 style="width: 15%;">{{ ((item.vote_rank) - (item.food_rank))}}</h3>
+            <div *ngIf="item.vote_rank == 0;else gg"  style="width: 15%;">
+              <h3 style="width: 15%;">0</h3>
+            </div>
+            <ng-template #gg  style="width: 15%;">
+              <h3 style="width: 15%;">{{ ((item.vote_rank) - (item.food_rank))}}</h3>
+            </ng-template>
             <h3 style="width: 40%;">{{ item.name }}</h3>
             <div class="circle-card">
               <img src="{{ item.img}}" alt="">
