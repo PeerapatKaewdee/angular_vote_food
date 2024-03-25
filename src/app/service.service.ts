@@ -88,5 +88,40 @@ export class ServiceService {
     const response = await lastValueFrom(this.http.get(url));
     return response as RankingPostResp[];
   }
+  public async get_rank_day1(){
+    const url = this.constants.API_ENDPOINT +'/ranking/day1';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as UserPostResp[];
+   }
+  public async get_rank_day2(){
+    const url = this.constants.API_ENDPOINT +'/ranking/day2';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as UserPostResp[];
+   }
+   public async get_rank_day3(){
+    const url = this.constants.API_ENDPOINT +'/ranking/day3';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as UserPostResp[];
+   }
+   public async get_rank_day4(){
+    const url = this.constants.API_ENDPOINT +'/ranking/day4';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as UserPostResp[];
+   }
+   public async get_rank_day5(){
+    const url = this.constants.API_ENDPOINT +'/ranking/day5';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as UserPostResp[];
+   }
+   public async get_rank_day6(){
+    const url = this.constants.API_ENDPOINT +'/ranking/day6';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as UserPostResp[];
+   }
+   public async get_rank_day7(){
+    const url = this.constants.API_ENDPOINT +'/ranking/day7';
+    const response = await lastValueFrom(this.http.get(url));
+    return response as UserPostResp[];
+   }
 
 }
