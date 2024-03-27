@@ -7,6 +7,7 @@ import { RankingPostResp } from '../app/model/user_res';
 import { profile } from '../app/model/user_res';
 import { foodsImg } from '../app/model/user_res';
 import { foodsData } from '../app/model/user_res';
+import { foods_day_score } from '../app/model/user_res';
 import { lastValueFrom } from 'rxjs';
 import { response } from 'express';
 
@@ -93,7 +94,6 @@ export class ServiceService {
     const url = this.constants.API_ENDPOINT+'/uplaods/' + id ;
     const response = await lastValueFrom(this.http.put(url,JSON.parse(JSON.stringify(body))));
     return response  as UserPostResp[];
-
    }
    public async insert_hiss(body : any){
     const url =  this.constants.API_ENDPOINT + '/foods/vote';
@@ -105,40 +105,40 @@ export class ServiceService {
     const response = await lastValueFrom(this.http.get(url));
     return response as RankingPostResp[];
   }
-  public async get_rank_day1(){
-    const url = this.constants.API_ENDPOINT +'/ranking/day1';
+  public async get_rank_day1(id:any){
+    const url = this.constants.API_ENDPOINT +'/ranking/day1/' + id;
     const response = await lastValueFrom(this.http.get(url));
-    return response as UserPostResp[];
+    return response as foods_day_score[];
    }
-  public async get_rank_day2(){
-    const url = this.constants.API_ENDPOINT +'/ranking/day2';
+  public async get_rank_day2(id:any){
+    const url = this.constants.API_ENDPOINT +'/ranking/day2/'  + id;
     const response = await lastValueFrom(this.http.get(url));
-    return response as UserPostResp[];
+    return response as foods_day_score[];
    }
-   public async get_rank_day3(){
-    const url = this.constants.API_ENDPOINT +'/ranking/day3';
+   public async get_rank_day3(id:any){
+    const url = this.constants.API_ENDPOINT +'/ranking/day3/'  + id;
     const response = await lastValueFrom(this.http.get(url));
-    return response as UserPostResp[];
+    return response as foods_day_score[];
    }
-   public async get_rank_day4(){
-    const url = this.constants.API_ENDPOINT +'/ranking/day4';
+   public async get_rank_day4(id:any){
+    const url = this.constants.API_ENDPOINT +'/ranking/day4/'  + id;
     const response = await lastValueFrom(this.http.get(url));
-    return response as UserPostResp[];
+    return response as foods_day_score[];
    }
-   public async get_rank_day5(){
-    const url = this.constants.API_ENDPOINT +'/ranking/day5';
+   public async get_rank_day5(id:any){
+    const url = this.constants.API_ENDPOINT +'/ranking/day5/'  + id;
     const response = await lastValueFrom(this.http.get(url));
-    return response as UserPostResp[];
+    return response as foods_day_score[];
    }
-   public async get_rank_day6(){
-    const url = this.constants.API_ENDPOINT +'/ranking/day6';
+   public async get_rank_day6(id:any){
+    const url = this.constants.API_ENDPOINT +'/ranking/day6/'  + id;
     const response = await lastValueFrom(this.http.get(url));
-    return response as UserPostResp[];
+    return response as foods_day_score[];
    }
-   public async get_rank_day7(){
-    const url = this.constants.API_ENDPOINT +'/ranking/day7';
+   public async get_rank_day7(id:any){
+    const url = this.constants.API_ENDPOINT +'/ranking/day7/'  + id;
     const response = await lastValueFrom(this.http.get(url));
-    return response as UserPostResp[];
+    return response as foods_day_score[];
    }
    public async delete_foodsImg(id:any){
     const url = this.constants.API_ENDPOINT +'/foods/delete/' + id;

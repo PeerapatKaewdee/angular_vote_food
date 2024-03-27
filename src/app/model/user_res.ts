@@ -22,6 +22,11 @@ export interface foodsData {
     fid:       number;
 
 }
+export interface foods_day_score {
+    score:    number;
+    // fid:       number;
+
+}
 export interface RankingPostResp {
     fid:            number;
     name:           string;

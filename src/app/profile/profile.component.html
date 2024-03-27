@@ -98,8 +98,8 @@
     <div class="card-container">
         <div class="custom-card">
             <div style=" background-size: cover;" *ngFor="let img of this.img">
-                <!-- (click)="input.click()" -->
-                <img  src="{{img.img}}" width="200px" height="100%" alt="">
+                
+                <img (click)="graph(img.fid)" src="{{img.img}}" width="200px" height="100%" alt="">
                 <!-- <div>
                     <input #input type="file" (change)="onFileSelectedById($event,img.fid)" hidden>
                 </div> -->

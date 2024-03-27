@@ -115,6 +115,6 @@ export class EditComponent implements OnInit {
   profile() {
     this.service.id = this.id;
     this.router.navigateByUrl('/profile');
-    location.reload();
+    // location.reload();
   }
 }

@@ -119,6 +119,7 @@ export class ProfileComponent implements OnInit {
     //   console.log(Response);
     // });
   }
+  
   async callAip() {
     this.user = await this.service.getUser();
 
@@ -135,7 +136,11 @@ export class ProfileComponent implements OnInit {
     this.uploadImage();
     // Optionally, you can call uploadImage() here if you want to upload the file immediately after selection
   }
- 
+  graph(id:any){
+    localStorage.setItem("fid",id);
+    console.log("fid graph",id);
+    this.router.navigateByUrl('/graph');
+  }
   async uploadImage() {
     if (this.selectedFile) {
       const formData = new FormData();
@@ -244,14 +249,17 @@ export class DialogAnimationsExampleDialog{
 export class DialogAnimationsExampleDialog2{
 
   foods:any;
-
+  id:any;
   constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog2>,private service:ServiceService,@Inject(MAT_DIALOG_DATA) public data: DialogData,){
-  
+      this.id = this.data.id;
   }
 
-  async edit(){  
+  async delete(){  
    console.log("ID dialog",this.data.id);
-  //  delete
+   console.log("delete ID",this.id);
+   
+  this.service.delete_foodsImg(this.id);
+  // location.reload();
   }
 
 }
