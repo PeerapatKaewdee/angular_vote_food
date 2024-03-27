@@ -23,8 +23,7 @@ import {
 } from '@angular/material/dialog';
 
 export interface DialogData {
-  animal: string;
-  name: string;
+  id: number;
 }
 // import { ButtonModule } from 'primeng/button';
 @Component({
@@ -79,12 +78,27 @@ export class ProfileComponent implements OnInit {
     // this.service.id = this.id;
     this.getUser();
   }
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(DialogAnimationsExampleDialog, {
-      width: '250px',
-      enterAnimationDuration,
-      exitAnimationDuration,
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string , id:any): void {
+
+    const dialogRef = this.dialog.open(DialogAnimationsExampleDialog, {
+      data: {id: id},
+
+      width: '450px',
+      height: '480px',
     });
+
+    // console.log(id);
+    
+  }
+  openDialog2(enterAnimationDuration: string, exitAnimationDuration: string , id:any): void {
+
+    const dialogRef = this.dialog.open(DialogAnimationsExampleDialog2, {
+      data: {id: id},
+      width: '250px',
+    });
+
+    // console.log(id);
+    
   }
   async getUser() {
     console.log('service.id', this.service.id);
@@ -121,27 +135,7 @@ export class ProfileComponent implements OnInit {
     this.uploadImage();
     // Optionally, you can call uploadImage() here if you want to upload the file immediately after selection
   }
-  async onFileSelectedById(event: any, id: any): Promise<void> {
-    this.selectedFilefoods = event.target.files[0];
-    console.log('selectedFile1', this.selectedFilefoods);
-    console.log('fid = ', id);
-
-    if (this.selectedFilefoods) {
-      const formData = new FormData();
-      formData.append('file', this.selectedFilefoods);
-      formData.append('fid', id);
-
-      console.log('formData : 123', formData);
-      // รอให้การเรียก post_upProfile() เสร็จสิ้นและรับข้อมูลที่ส่งกลับมา
-      const response = await this.service.put_foods_img(formData);
-      console.log('Response from server:', response);
-
-      console.log('selectedFile2', this.selectedFilefoods);
-      // location.reload();
-      // ทำงานอื่นๆที่ต้องการทำหลังจากการอัปโหลดไฟล์
-    }
-    // Optionally, you can call uploadImage() here if you want to upload the file immediately after selection
-  }
+ 
   async uploadImage() {
     if (this.selectedFile) {
       const formData = new FormData();
@@ -176,8 +170,77 @@ export class ProfileComponent implements OnInit {
   selector: 'Dialog',
   templateUrl: 'Dialog.html',
   standalone: true,
-  imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent],
+  imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent,CommonModule,FormsModule,MatInputModule],
 })
-export class DialogAnimationsExampleDialog {
-  constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>) {}
+export class DialogAnimationsExampleDialog{
+  name!:any;
+  detail!:any;
+  img!:any | undefined;
+  user:any;
+  foods:any;
+  id:any;
+  constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>,private service:ServiceService,@Inject(MAT_DIALOG_DATA) public data: DialogData,){
+    this.food_data();
+  }
+
+  async edit(id:any){
+
+  this.id = this.data.id;
+  console.log(this.name);
+  console.log("ID dialog123",this.data.id);
+
+  if (this.img) {
+    const formData = new FormData();
+    formData.append('file', this.img);
+    formData.append('fid', this.id);
+
+    console.log('fid = ', this.id);
+
+    console.log('formData : 123', formData);
+    // รอให้การเรียก post_upProfile() เสร็จสิ้นและรับข้อมูลที่ส่งกลับมา
+    const response = await this.service.put_foods_img(formData);
+    console.log('Response foods img from server:', response);
+
+    console.log('selectedFile2', this.img);
+    // location.reload();
+    // ทำงานอื่นๆที่ต้องการทำหลังจากการอัปโหลดไฟล์
+  }
+   
+  }
+  async food_data(){
+    this.foods = await this.service.get_foodsById(this.data.id);
+    console.log("foods Data ", this.foods);
+    for(let food of this.foods){
+      this.name = food.name;
+      this.detail = food.descroption;
+    }
+    console.log("name",this.name);
+    
+  }
+  async onFileSelectedById(event: any): Promise<void> {
+    this.img = event.target.files[0];
+    console.log('selectedFile1', this.img);
+    // Optionally, you can call uploadImage() here if you want to upload the file immediately after selection
+  }
+
+}
+@Component({
+  selector: 'delete',
+  templateUrl: 'delete.html',
+  standalone: true,
+  imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent,CommonModule,FormsModule],
+})
+export class DialogAnimationsExampleDialog2{
+
+  foods:any;
+
+  constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog2>,private service:ServiceService,@Inject(MAT_DIALOG_DATA) public data: DialogData,){
+  
+  }
+
+  async edit(){  
+   console.log("ID dialog",this.data.id);
+  //  delete
+  }
+
 }

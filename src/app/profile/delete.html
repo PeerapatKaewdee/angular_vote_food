@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Delete file</h2>
+<mat-dialog-content>
+    <h1>
+        Are you sure?
+    </h1>
+</mat-dialog-content>
+<mat-dialog-actions style="display: flex;  justify-content: space-around;">
+    <button mat-button mat-dialog-close >No</button>
+    <button mat-button mat-dialog-close cdkFocusInitial (click)="edit()" color="warn">sure</button>
+</mat-dialog-actions>
