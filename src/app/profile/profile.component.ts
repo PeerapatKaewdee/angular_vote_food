@@ -183,21 +183,18 @@ export class DialogAnimationsExampleDialog{
     this.food_data();
   }
 
-  async edit(id:any){
-
-  this.id = this.data.id;
+  async edit(id:any) : Promise<void> {
   console.log(this.name);
-  console.log("ID dialog123",this.data.id);
-
+  console.log("ID dialog123",this.id);
+  this.foodsBody();
   if (this.img) {
     const formData = new FormData();
-    formData.append('file', this.img);
-    formData.append('fid', this.id);
+    formData.append("file", this.img);
+    formData.append("fid", this.id);
 
     console.log('fid = ', this.id);
-
     console.log('formData : 123', formData);
-    // รอให้การเรียก post_upProfile() เสร็จสิ้นและรับข้อมูลที่ส่งกลับมา
+    // รอให้การเรียก put_upProfile() เสร็จสิ้นและรับข้อมูลที่ส่งกลับมา
     const response = await this.service.put_foods_img(formData);
     console.log('Response foods img from server:', response);
 
@@ -205,19 +202,33 @@ export class DialogAnimationsExampleDialog{
     // location.reload();
     // ทำงานอื่นๆที่ต้องการทำหลังจากการอัปโหลดไฟล์
   }
+  // location.reload();
    
   }
+  async foodsBody(){
+    const body = {
+      name: this.name,
+      descroption:  this.detail,
+      fid:  this.id
+    }
+    console.log("foods body",body);
+    const respon =  await this.service.put_foods_data(body);
+    console.log("repon foods daata",respon);
+    
+  }
   async food_data(){
+    this.id = this.data.id;
     this.foods = await this.service.get_foodsById(this.data.id);
     console.log("foods Data ", this.foods);
     for(let food of this.foods){
       this.name = food.name;
       this.detail = food.descroption;
     }
+    console.log("ID dialog123",this.id);
     console.log("name",this.name);
     
   }
-  async onFileSelectedById(event: any): Promise<void> {
+  async onFileSelectedById(event: any){
     this.img = event.target.files[0];
     console.log('selectedFile1', this.img);
     // Optionally, you can call uploadImage() here if you want to upload the file immediately after selection

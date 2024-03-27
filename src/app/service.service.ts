@@ -6,6 +6,7 @@ import { UserPostResp } from '../app/model/user_res';
 import { RankingPostResp } from '../app/model/user_res';
 import { profile } from '../app/model/user_res';
 import { foodsImg } from '../app/model/user_res';
+import { foodsData } from '../app/model/user_res';
 import { lastValueFrom } from 'rxjs';
 import { response } from 'express';
 
@@ -74,8 +75,13 @@ export class ServiceService {
     return response as foodsImg[];
    }
    public async put_foods_img(body : FormData){
-    const url = this.constants.API_ENDPOINT + '/uplaods/foodsimg';
+    const url = this.constants.API_ENDPOINT + '/uplaods/foods/img';
     const response = await lastValueFrom(this.http.put(url,body));
+    return response as foodsData[];
+   }
+   public async put_foods_data(body : any){
+    const url = this.constants.API_ENDPOINT + '/foods/update/data';
+    const response = await lastValueFrom(this.http.put(url,JSON.parse(JSON.stringify(body))));
     return response as foodsImg[];
    }
    public async post_upProfile_img_ById(body : FormData){

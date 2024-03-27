@@ -17,6 +17,11 @@ export interface foodsImg {
     fid:       number;
 
 }
+export interface foodsData {
+    url:    string;
+    fid:       number;
+
+}
 export interface RankingPostResp {
     fid:            number;
     name:           string;

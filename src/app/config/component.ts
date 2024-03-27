@@ -7,4 +7,5 @@ export class Constants {
   // public readonly API_ENDPOINT: string = 'http://202.28.34.197./tripbooking';
   // public readonly API_ENDPOINT: string = 'https://cslab.IT.msu.ac.th/tripbooking';
   public readonly API_ENDPOINT: string = 'https://foods-api-53gl.onrender.com';
+  // public readonly API_ENDPOINT: string = 'http://localhost:3000';
 }
