@@ -82,7 +82,10 @@ if(email.value && password.value){
         
       
         if (user.type === 1) {
-
+          this.uid = user.uid ;
+          localStorage.setItem("uid",this.uid);
+          this.service.id = localStorage.getItem("uid");
+           console.log(localStorage.getItem("uid"));
           this.router.navigateByUrl('/addmin');
         //   console.log('user.email', user.email);
         // console.log('user.pass', user.pass);
