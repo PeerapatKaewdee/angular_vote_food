@@ -47,6 +47,9 @@ export class GraphComponent implements OnInit {
   }
 
   async ngOnInit() {
+    if(localStorage.getItem("uid")){
+      this.router.navigateByUrl('/');
+    }
     this.fid = localStorage.getItem('fid');
     this.id = localStorage.getItem('uid');
     console.log('id local = ', this.id);

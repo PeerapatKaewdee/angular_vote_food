@@ -51,6 +51,11 @@ export class VoteComponent {
     
   }
   ngOnInit(): void {
+    if(localStorage.getItem("uid")){
+     
+    }else{
+      this.router.navigateByUrl('/');
+    }
     this.id = localStorage.getItem("uid");
     console.log("id local = ",this.id);
     console.log("uid",this.id);

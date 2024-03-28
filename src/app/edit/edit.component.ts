@@ -46,7 +46,12 @@ export class EditComponent implements OnInit {
 
     // this.get_img();
   }
-  ngOnInit(): void {
+  ngOnInit(){
+    if(localStorage.getItem("uid")){
+     
+    }else{
+      this.router.navigateByUrl('/');
+    }
     this.id = localStorage.getItem('uid');
     console.log('id local = ', this.id);
     console.log('uid', this.id);

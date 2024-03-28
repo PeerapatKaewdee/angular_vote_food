@@ -71,6 +71,11 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(localStorage.getItem("uid")){
+    
+    }else{
+      this.router.navigateByUrl('/');
+    }
     // this.id = this.ActivatedRoute.snapshot.paramMap.get('uid') || ' ';
     this.id = localStorage.getItem('uid');
     console.log('id local = ', this.id);

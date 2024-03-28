@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ServiceService } from '../service.service';
@@ -23,10 +23,15 @@ export class AddminComponent {
   addmin:any ;
   user: UserPostResp[] = [];
 
-  constructor(private http: HttpClient, private service: ServiceService,private ActivatedRoute :ActivatedRoute){}
+  constructor(private http: HttpClient, private service: ServiceService,private router:Router){}
 
 
   async ngOnInit(){
+    if(localStorage.getItem("Addmin")){
+     
+    }else{
+      this.router.navigateByUrl('/');
+    }
   // this.get_img();    
   this.id = localStorage.getItem("AddMin");
   console.log("addmin uid",this.id);
@@ -38,7 +43,11 @@ export class AddminComponent {
   console.log("user",this.user);
     
   }
-  profile(){
-    
+  viewprofile(){
+    this.router.navigateByUrl('/viewprofile');
+  }
+  logOut(){
+    localStorage.removeItem('uid');
+    this.router.navigateByUrl('');
   }
 }

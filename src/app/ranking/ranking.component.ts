@@ -34,7 +34,11 @@ export class RankingComponent {
    
   }
   ngOnInit(): void {
-
+    if(localStorage.getItem("uid")){
+     
+    }else{
+      this.router.navigateByUrl('/');
+    }
     // this.id = this.ActivatedRoute.snapshot.paramMap.get(this.uid);
     // console.log(this.id);
     this.id = localStorage.getItem("uid");

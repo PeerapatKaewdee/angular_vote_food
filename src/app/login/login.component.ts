@@ -48,13 +48,12 @@ export class LoginComponent implements OnInit {
   constructor(private http: HttpClient, private service: ServiceService,private router: Router) {}
   
   ngOnInit(): void {
+    if(localStorage.getItem("uid")){
+      this.router.navigateByUrl('/profile');
+    }else if(localStorage.getItem("AddMin")){
+      this.router.navigateByUrl('/addmin');
+    }
 
-  }
-
-  async callAip() {
-    this.user = await this.service.getUser();
-
-    console.log(this.user);
   }
 
   async login(email: HTMLInputElement, password: HTMLInputElement) {
