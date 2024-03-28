@@ -21,6 +21,7 @@
         box-sizing: border-box;
         /* Include padding and border in the element's total width and height */
     }
+
     .inputfield textarea {
         border-radius: 10px;
         /* Apply border-radius to the input */
@@ -45,7 +46,7 @@
         <label>Details foods</label>
         <div class="inputfield">
             <textarea style="height: 100px; text-align: justify; white-space: pre-wrap;" type="text"
-            [(ngModel)]="this.detail"></textarea>
+                [(ngModel)]="this.detail"></textarea>
             <!-- <label style="color: rgb(0, 0, 0)">Password</label> -->
         </div>
         <label>Photo</label>
@@ -57,5 +58,5 @@
 </mat-dialog-content>
 <mat-dialog-actions style="display: flex; justify-content: space-around; margin-inline: 70px;">
     <button mat-button mat-dialog-close color="warn">No</button>
-    <button mat-button mat-dialog-close cdkFocusInitial (click)="edit(foods.fid)" color="primary">Edit</button>
+    <button mat-button mat-dialog-close cdkFocusInitial (click)="edit(foods.fid)" color="primary">Add data</button>
 </mat-dialog-actions>
