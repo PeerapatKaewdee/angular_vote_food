@@ -48,9 +48,7 @@ export class LoginComponent implements OnInit {
   constructor(private http: HttpClient, private service: ServiceService,private router: Router) {}
   
   ngOnInit(): void {
-    this.service.getUser((Response: any) => {
-      console.log(Response);
-    });
+
   }
 
   async callAip() {
@@ -83,9 +81,9 @@ if(email.value && password.value){
       
         if (user.type === 1) {
           this.uid = user.uid ;
-          localStorage.setItem("uid",this.uid);
-          this.service.id = localStorage.getItem("uid");
-           console.log(localStorage.getItem("uid"));
+          localStorage.setItem("AddMin",this.uid);
+          // this.service.id = localStorage.getItem("AddMin");
+           console.log(localStorage.getItem("AddMin"));
           this.router.navigateByUrl('/addmin');
         //   console.log('user.email', user.email);
         // console.log('user.pass', user.pass);

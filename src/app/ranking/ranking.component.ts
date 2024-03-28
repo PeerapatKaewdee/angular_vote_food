@@ -43,9 +43,6 @@ export class RankingComponent {
     this.Get_ranking();
     console.log(this.data);
     // this.service.id = this.id;
-    this.service.getUser((Response: any) => {
-      console.log(Response);
-    });
   }
 
   async callAip() {

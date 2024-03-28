@@ -10,7 +10,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body style="background-color: yellow;">
+<body>
 
     <nav class="navbar" style="background-color: #ffffff;">
         <div class="container-fluid" style="margin-inline: 100px; ">
@@ -19,38 +19,39 @@
                 <img style="width: 20%; height: 100%;" src="../../assets/images/2 1.png" alt="">
             </div>
 
-            <div class="circle-card">
-                <img src="{{this.img[0].avatar}}" alt="">
+            <div class="circle-card" *ngFor="let addmin of addmin">
+                <img style="display: flex; object-fit: cover;" src="{{addmin.avatar}}" width="100%" height="100%"
+                    alt="">
             </div>
             <button class="ButtonL" style="display: flex; align-items: center;" mat-button routerLink="/">Logout <img
                     src="../../assets/images/mdi_logout.png" alt=""></button>
 
         </div>
     </nav>
-
-    <div class="container mt-4">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body" >
+    <div>
+        <div class="container">
+            <div *ngFor="let user of user">
+                <div class="card ">
+                    <div class="card-body">
                         <div class="circle-card2">
-                            <img src="your_image_url_here" alt="">
+                            <img src="{{user.avatar}}" alt="">
                         </div>
                         <div style="display: flex; justify-content: center; margin-top: 20px;">
-                        <p>user name</p>
+                            <p>{{user.name}}</p>
                         </div>
                         <div style="display: flex; justify-content: center; margin-top: 20px;">
-                        <button mat-button type="button" [routerLink]="'/edit'" class="custom-button"
-                            style="background-color: orange; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">Profile
-                            <img src="../../assets/images/teenyicons_user-square-outline (1).png" alt="" style="height: 15px;">
-                        </button>
+                            <button mat-button type="button" class="custom-button"
+                                style="background-color: orange; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">Profile
+                                <img src="../../assets/images/teenyicons_user-square-outline (1).png" alt=""
+                                    style="height: 15px;">
+                            </button>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

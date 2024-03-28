@@ -101,7 +101,7 @@ export class ProfileComponent implements OnInit {
     
   }
   async getUser() {
-    console.log('service.id', this.service.id);
+    // console.log('service.id', this.service.id);
     this.img = await this.service.get_foods_img(this.id);
     for (let gg of this.img) {
       this.check++;

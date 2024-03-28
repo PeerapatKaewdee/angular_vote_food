@@ -60,13 +60,13 @@ export class GraphComponent implements OnInit {
     this.day5 = await this.service.get_rank_day5(this.fid);
     this.day6 = await this.service.get_rank_day6(this.fid);
     this.day7 = await this.service.get_rank_day7(this.fid);
-    console.log('day1',this.day1);
-    console.log('da2', Math.floor(this.day2));
-    console.log('day3', this.day3[0].scroe);
-    console.log('day4', Math.floor(this.day4[0].scroe));
-    console.log('day5', this.day5[0].scroe);
-    console.log('day6', Math.floor(this.day6[0].scroe));
-    console.log('day7', this.day7[0].scroe);
+    console.log('day1',Math.floor(this.day1[0].score));
+    console.log('day2', Math.floor(this.day2[0].score));
+    console.log('day3', Math.floor(this.day3[0].score));
+    console.log('day4', Math.floor(this.day4[0].score));
+    console.log('day5', Math.floor(this.day5[0].score));
+    console.log('day6', Math.floor(this.day6[0].score));
+    console.log('day7', Math.floor(this.day7[0].score));
 
     
     this.img = {
@@ -83,12 +83,13 @@ export class GraphComponent implements OnInit {
             Math.floor(this.day2[0].score),
             Math.floor(this.day1[0].score),
         ],
-        
           backgroundColor: ['green'],
           borderColor: ['Black'],
           borderWidth: 1,
+          
         },
       ],
+      
     };
   }
   profile() {

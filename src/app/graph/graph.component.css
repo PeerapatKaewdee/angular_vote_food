@@ -20,3 +20,7 @@ h1 {
 button{
     margin-top: -80px;
 }
+#chart-container {
+    width: 600px;
+    height: 400px;
+  }
