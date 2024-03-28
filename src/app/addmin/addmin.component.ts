@@ -38,7 +38,7 @@ export class AddminComponent {
   this.addmin = await this.service.getUserByID(this.id);
   console.log("addmin",this.addmin);
    
-  this.user = await this.service.getUser();
+  this.user = await this.service.getUserAbbmin();
   console.log("user",this.user);
     
   }
