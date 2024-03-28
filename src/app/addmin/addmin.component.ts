@@ -27,15 +27,14 @@ export class AddminComponent {
 
 
   async ngOnInit(){
-    if(localStorage.getItem("Addmin")){
-     
+    if(localStorage.getItem("AddMin")){
+       
     }else{
       this.router.navigateByUrl('/');
     }
   // this.get_img();    
   this.id = localStorage.getItem("AddMin");
   console.log("addmin uid",this.id);
-  
   this.addmin = await this.service.getUserByID(this.id);
   console.log("addmin",this.addmin);
    
@@ -47,7 +46,7 @@ export class AddminComponent {
     this.router.navigateByUrl('/viewprofile');
   }
   logOut(){
-    localStorage.removeItem('uid');
+    localStorage.removeItem('AddMin');
     this.router.navigateByUrl('');
   }
 }

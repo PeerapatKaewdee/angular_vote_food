@@ -107,6 +107,9 @@ export class ProfileComponent implements OnInit {
   }
   async getUser() {
     // console.log('service.id', this.service.id);
+    this.user = await this.service.getUserByID(this.id);
+    console.log("user",this.user);
+    
     this.img = await this.service.get_foods_img(this.id);
     for (let gg of this.img) {
       this.check++;
@@ -114,8 +117,7 @@ export class ProfileComponent implements OnInit {
     }
     console.log('check ', this.check);
     // this.name = await this.service.getUserByID(this.id);
-    console.log('name', this.name);
-
+    console.log('name', this.name)
     console.log('img', this.img);
 
     // this.get_img();
@@ -125,11 +127,6 @@ export class ProfileComponent implements OnInit {
     // });
   }
   
-  async callAip() {
-    this.user = await this.service.getUser();
-
-    console.log(this.user);
-  }
   file(event: any) {
     const formData = new FormData();
     formData.append('file', event);

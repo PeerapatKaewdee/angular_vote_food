@@ -40,19 +40,16 @@
         </div>
     </nav>
     <!-- Add this inside the <body> tag -->
-    <div *ngIf="img" style="margin-left: 30px; display: flex; align-items: center;">
+    <div *ngFor="let user of user" style="margin-left: 30px; display: flex; align-items: center;">
         <!-- Adjust margin-left as needed -->
         <div class="circle-card">
-            <img src="{{this.img[0].avatar}}" alt="">
+            <img src="{{user.avatar}}" alt="">
         </div>
         <div style="margin-top: 5%;">
-            <h1 style="margin-left: 80%;">{{this.img[0].name}}</h1>
-            <h1 style="margin-left: 80%;">{{this.img[0].last_name}}</h1>
+            <h1 style="margin-left: 80%;">{{user.name}}</h1>
+            <h1 style="margin-left: 80%;">{{user.last_name}}</h1>
         </div>
     </div>
-
-
-
 
     <div class="button-container">
         <button mat-button type="button" [routerLink]="'/edit'" class="custom-button"

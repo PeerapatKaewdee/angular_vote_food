@@ -23,8 +23,8 @@
                 <img style="display: flex; object-fit: cover;" src="{{addmin.avatar}}" width="100%" height="100%"
                     alt="">
             </div>
-            <button class="ButtonL" style="display: flex; align-items: center;" mat-button (click)="logOut()" >Logout <img
-                    src="../../assets/images/mdi_logout.png" alt=""></button>
+            <button (click)="logOut()" class="ButtonL" style="display: flex; align-items: center;" mat-button>Logout
+                <img src="../../assets/images/mdi_logout.png" alt=""></button>
 
         </div>
     </nav>
@@ -41,10 +41,11 @@
                         </div>
                         <div style="display: flex; justify-content: center; margin-top: 20px;">
                             <button mat-button type="button" class="custom-button"
-                                style="background-color: orange; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);" (click)="viewprofile()">Profile
+                                style="background-color: orange; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);"
+                                (click)="viewprofile()">Profile
                                 <img src="../../assets/images/teenyicons_user-square-outline (1).png" alt=""
                                     style="height: 15px;">
-                                    
+
                             </button>
                         </div>
                     </div>

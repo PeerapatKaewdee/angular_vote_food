@@ -47,10 +47,11 @@ export class LoginComponent implements OnInit {
   // router: any;
   constructor(private http: HttpClient, private service: ServiceService,private router: Router) {}
   
-  ngOnInit(): void {
+  ngOnInit(){
     if(localStorage.getItem("uid")){
       this.router.navigateByUrl('/profile');
-    }else if(localStorage.getItem("AddMin")){
+    }
+    if(localStorage.getItem("AddMin")){
       this.router.navigateByUrl('/addmin');
     }
 
