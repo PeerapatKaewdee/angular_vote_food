@@ -10,7 +10,7 @@
 .cardbody{
 
     width: 1150px;
-    height: 480px;
+    height: 600px;
     border-radius: 50px;
     background-color: rgb(248, 234, 236);
 }
@@ -27,7 +27,7 @@ h1 {
   .inputfield input {
     border-radius: 10px; /* Apply border-radius to the input */
     border: 1px solid #ccc; /* Optional: Add border for styling */
-    padding: 12px; /* Optional: Add padding for styling */
+    padding: 10px; /* Optional: Add padding for styling */
      box-shadow: 0 6px 4px rgba(0, 0, 0, 0.1); /* Add shadow effect */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
   }

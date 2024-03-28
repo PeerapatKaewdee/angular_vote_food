@@ -25,6 +25,7 @@ export class SignUpComponent {
 id:any;
 email: any ;
 pass: any ;
+pass2: any ;
 name: any='';
 // country: any;
 
@@ -33,21 +34,26 @@ name: any='';
     // this.profileid();
   }
   async sigup(){
-  const body = {
-    name: this.name,
-    type:0,
-    email: this.email,
-    pass: this.pass
-  }
-  console.log("body",body);
-  console.log(this.id);
-  const test = await this.service.signUp(body);
-  console.log("test",test);
-  this.profileid();
+    if(this.pass == this.pass2){
 
-  
-  
-  // await this.service.signUp(body);
+      const body = {
+        name: this.name,
+        type:0,
+        email: this.email,
+        pass: this.pass
+      }
+      console.log("body",body);
+      console.log(this.id);
+      const test = await this.service.signUp(body);
+      console.log("test",test);
+      this.profileid();
+    
+      
+      
+      // await this.service.signUp(body);
+    }else{
+      this.pass2 = '';
+    }
 }
   async profileid(){
    this.id = await this.service.get_new_user();

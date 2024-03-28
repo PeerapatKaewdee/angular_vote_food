@@ -1,16 +1,19 @@
 <div class="cardposition">
   <mat-card class="cardbody">
     <mat-card-header></mat-card-header>
-    <mat-card-content style="margin-top: 5px">
+    <mat-card-content>
       <div class="row" style="justify-content: space-between; display: flex">
         <div>
-          <img src="assets/images/Rectangle.png" height="440px" width="580px" alt="good" />
+          <img style="background-size: cover;" routerLink="" src="assets/images/Rectangle.png" height="100%" width="600px"
+            alt="good" />
         </div>
 
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
           <div style="display: flex; align-items: flex-end;">
-            <span style="font-family:cursive; font-size: 24px;">Sign up</span>
-            <img src="assets/images/2 1.png" height="150px" width="150px" alt="good" />
+            <div style="margin-top: -80px;">
+              <span style="font-family:cursive; font-size: 24px;">Sign up</span>
+            </div>
+            <img src="assets/images/2 1.png" height="150px" width="150px" alt="food" />
           </div>
           <div class="example-form">
             <div class="inputfield">
@@ -30,6 +33,13 @@
               <!-- <input type="password" placeholder="Password" [(ngModel)]="pass" /> -->
               <input type="password" [(ngModel)]="pass" placeholder="Password" />
             </div>
+            <br />
+            <div class="inputfield">
+              <label style="color: rgb(0, 0, 0)">Confirm Password</label>
+              <!-- <input type="password" placeholder="Password" [(ngModel)]="pass" /> -->
+              <input type="password" [(ngModel)]="pass2" placeholder="Password" />
+            </div>
+            <br />
             <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 10px;">
               <button style="border-radius: 10px; margin-bottom: 10px; background-color: rgb(255, 208, 0);"
                 mat-raised-button [routerLink]="'/login'">

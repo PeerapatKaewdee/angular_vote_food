@@ -3,22 +3,22 @@
     <mat-card-content style="margin-top: 5px">
       <div class="row" style="justify-content: space-between; display: flex">
         <div>
-          <img src="assets/images/Rectangle.png" height="440px" width="580px" alt="good" />
+          <img src="assets/images/Rectangle.png" height="440px" width="580px" routerLink="/" alt="good" />
         </div>
 
         <div>
           <div style="display: flex; margin-left: 20%">
             <img src="assets/images/2 1.png" height="150px" width="150px" alt="good" />
           </div>
-          <form class="example-form">
+          <div class="example-form">
             <div class="inputfield">
               <label style="color: rgb(0, 0, 0)">Email</label>
-              <input type="email" placeholder="name@gmail.com" #email required>
+              <input type="email" placeholder="name@gmail.com" [(ngModel)]="email" required>
             </div>
 
             <div class="inputfield">
               <label style="color: rgb(0, 0, 0)">Password</label>
-              <input type="password" placeholder="Password" #password required>
+              <input type="password" placeholder="Password" [(ngModel)]="password" required>
             </div>
 
 
@@ -32,12 +32,11 @@
                 routerLink="/signup">
                 Sign Up
               </button>
-              <button style="border-radius: 10px; margin-bottom: 10px" mat-raised-button color="warn"
-                (click)="login(email,password)">
+              <button style="border-radius: 10px; margin-bottom: 10px" mat-raised-button color="warn" (click)="login()">
                 Log in
               </button>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </mat-card-content>

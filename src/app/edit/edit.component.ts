@@ -33,6 +33,7 @@ export class EditComponent implements OnInit {
   lastname!: any;
   email!: any;
   pass!: any;
+  pass2!: any;
   selectedFile: File | null = null;
   id: any;
   data: any = '';
@@ -65,7 +66,9 @@ export class EditComponent implements OnInit {
     console.log('lastName', this.lastname);
     console.log('email', this.email);
     console.log('pass', this.pass);
+    if(this.pass2 == this.pass){
 
+    
     console.log('file', this.selectedFile);
     const body = {
       name: this.name,
@@ -76,6 +79,9 @@ export class EditComponent implements OnInit {
     await this.service.put_data_user(body, this.id);
     this.uploadImage();
     this.profile();
+  }else{
+    this.pass2 = '';
+  }
     // console.log("file",file);
   }
   async onFileSelected(event: any) {
