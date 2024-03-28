@@ -87,10 +87,10 @@
         </ng-template>
 
 
-        <button mat-button type="button" class="custom-button" [routerLink]="'/graph'"
+        <!-- <button mat-button type="button" class="custom-button" [routerLink]="'/graph'"
             style="background-color: rgb(255, 255, 255); color: black;">สถิติ 7 วัน
             <img src="../../assets/images/mynaui_image (1).png" alt="" style="height: 15px;">
-        </button>
+        </button> -->
     </div>
 
 
@@ -98,14 +98,14 @@
     <div class="card-container">
         <div class="custom-card">
             <div style=" background-size: cover;" *ngFor="let img of this.img">
-                
+
                 <img (click)="graph(img.fid)" src="{{img.img}}" width="200px" height="100%" alt="">
                 <!-- <div>
                     <input #input type="file" (change)="onFileSelectedById($event,img.fid)" hidden>
                 </div> -->
                 <div style="display: flex; justify-content: space-around; ">
-                    <button mat-button color="warn" (click)="openDialog2('0ms', '0ms', img.fid)"> Delete</button> <button
-                        mat-button (click)="openDialog('0ms', '0ms' , img.fid)">Edit</button>
+                    <button mat-button color="warn" (click)="openDialog2('0ms', '0ms', img.fid)"> Delete</button>
+                    <button mat-button (click)="openDialog('0ms', '0ms' , img.fid)">Edit</button>
                 </div>
             </div>
 

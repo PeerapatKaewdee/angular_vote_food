@@ -37,13 +37,14 @@
     </div>
   </nav>
 
-  <div style="position: relative;">
+  <div style="text-align: start;">
     <mat-card class="cardbody">
       <mat-card-content>
         <div style="display: flex; flex-direction: column;">
           <!-- <h3 style="margin-bottom: 8px;">Ranking</h3> -->
           <div style="display: flex; justify-content: space-between;">
             <h3 style="width: 15%;">Rank</h3>
+            <h3 style="width: 15%;">rank(up/dows)</h3>
             <h3 style="width: 40%;">Foods</h3>
             <h3 style="width: 5%;">Picture</h3>
             <h3 style="width: 15%;">Score</h3>
@@ -54,10 +55,10 @@
           <hr> <!-- Optional: Add a horizontal line -->
           <div *ngFor="let item of data" style="display: flex; justify-content: space-between; align-items: center;">
             <h3 style="width: 15%;">{{ item.rank }}</h3>
-            <div *ngIf="item.vote_rank == 0;else gg"  style="width: 15%;">
+            <div *ngIf="item.vote_rank == 0;else gg" style="width: 15%;">
               <h3 style="width: 15%;">0</h3>
             </div>
-            <ng-template #gg  style="width: 15%;">
+            <ng-template #gg style="width: 15%;">
               <h3 style="width: 15%;">{{ ((item.vote_rank) - (item.food_rank))}}</h3>
             </ng-template>
             <h3 style="width: 40%;">{{ item.name }}</h3>
