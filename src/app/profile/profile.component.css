@@ -135,5 +135,11 @@
     width: 200px;
     height: 185px;
     gap: 80px;
-
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    flex: 0 0 auto;
+    background-size: cover;
 }
+
+
